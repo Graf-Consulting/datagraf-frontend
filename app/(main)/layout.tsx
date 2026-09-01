@@ -1,19 +1,9 @@
-// app/(main)/layout.tsx
-import MenuHeader from "../components/MenuHeader";
-import Footer from "../components/Footer";
+import MainLayoutWrapper from "../components/MainLayoutWrapper";
 
-export default function MainLayout({
+export default async function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <MenuHeader />
-      <div className="flex-1">
-        {children}
-      </div>
-      <Footer />
-    </>
-  );
+  return <MainLayoutWrapper>{children}</MainLayoutWrapper>
 }
