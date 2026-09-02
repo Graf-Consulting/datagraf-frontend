@@ -7,8 +7,8 @@ import DataSourcesSection from "../sections/DataSourcesSection";
 import UpdatesSection from "../sections/UpdatesSection";
 
 export default async function Home() {
-    const supabae = await createClient();
-    const { data: {user} } = await supabae.auth.getUser();
+    const supabase = await createClient();
+    const { data: {user} } = await supabase.auth.getUser();
 
     if (user) {
         redirect("/hub/");
