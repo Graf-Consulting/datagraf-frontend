@@ -1,5 +1,6 @@
 "use client";
-
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 
 interface LoadingScreenProps {
@@ -7,13 +8,20 @@ interface LoadingScreenProps {
 }
 
 export default function LoadingScreen({ message = "Carregando..." }: LoadingScreenProps) {
-  return (
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return createPortal(
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0E0E0E]"
+      style={{ margin: 0, padding: 0, top: 0, left: 0, right: 0, bottom: 0 }}
     >
       {/* Gradient sutil de fundo */}
       <div className="absolute inset-0 opacity-30" style={{
@@ -41,6 +49,7 @@ export default function LoadingScreen({ message = "Carregando..." }: LoadingScre
           {message}
         </p>
       </div>
-    </motion.div>
+    </motion.div>,
+    document.body
   );
 }
