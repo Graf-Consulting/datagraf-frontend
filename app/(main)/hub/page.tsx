@@ -1,10 +1,25 @@
-import { requireAuth } from "@/lib/auth";
-import { redirect } from "next/navigation";
+'use client'
+
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/clients";
 import { LogOut, User, BarChart3, Settings, FileText, Flame, FilePlus, Map, Lightbulb, BookOpen } from "lucide-react";
 import Link from "next/link";
+import AuthGuard from "@/app/components/AuthGuard";
+import LoadingScreen from "@/app/components/LoadingScreen";
 
-export default async function HubPage() {
-  const user = await requireAuth();
+function HubContent() {
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return <LoadingScreen message="Carregando..." />;
 
   const displayName = user.user_metadata?.full_name || user.email;
 
@@ -65,4 +80,12 @@ export default async function HubPage() {
       </section>
     </main>
   );
+}
+
+export default function HubPage() {
+  return (
+    <AuthGuard>
+      <HubContent />
+    </AuthGuard>
+  )
 }
