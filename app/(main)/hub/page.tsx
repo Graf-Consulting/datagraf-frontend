@@ -1,27 +1,11 @@
-'use client'
-
-import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/clients";
 import { LogOut, User, BarChart3, Settings, FileText, Flame, FilePlus, Map, Lightbulb, BookOpen } from "lucide-react";
 import Link from "next/link";
-import AuthGuard from "@/app/components/AuthGuard";
-import LoadingScreen from "@/app/components/LoadingScreen";
+import { requireAuth } from "@/lib/auth";
 
-function HubContent() {
-  const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user);
-      setLoading(false);
-    });
-  }, []);
-
-  if (loading) return <LoadingScreen message="Carregando..." />;
-
-  const displayName = user.user_metadata?.full_name || user.email;
+export default async function HubPage() {
+  const claims = await requireAuth();
+  const displayName =
+    (claims.user_metadata as { full_name?: string })?.full_name || claims.email;
 
   const quickAccess = [
     { title: "Análises", description: "Acesse os painéis e relatórios técnicos.", icon: BarChart3, href: "/analises/" },
@@ -80,12 +64,4 @@ function HubContent() {
       </section>
     </main>
   );
-}
-
-export default function HubPage() {
-  return (
-    <AuthGuard>
-      <HubContent />
-    </AuthGuard>
-  )
 }
