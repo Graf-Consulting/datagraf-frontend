@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { BarChart3, TrendingUp, Ship, Truck, Globe, Anchor, ArrowRight } from "lucide-react";
 

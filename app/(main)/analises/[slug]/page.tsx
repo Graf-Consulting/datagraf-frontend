@@ -1,7 +1,5 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowLeft, BarChart3 } from "lucide-react";
 
 // Placeholder — depois a gente busca os dados reais por slug
@@ -32,10 +30,11 @@ const analiseData: Record<string, { title: string; description: string }> = {
   },
 };
 
-export default function AnaliseDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+export default async function AnaliseDetailPage({ params }: { params: Promise<{ slug: string }>; }) {
+  const { slug } = await params;
   const analise = analiseData[slug];
+
+  if (!analise) notFound();
 
   return (
     <main className="max-w-6xl mx-auto px-4 pt-8 pb-16 space-y-8">
