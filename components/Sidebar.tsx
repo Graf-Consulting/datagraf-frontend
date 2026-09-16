@@ -20,7 +20,7 @@ const navItems = [
 
 const footerItems = [
   { href: "/configuration/", label: "Configurações", icon: Settings },
-  { href: "#", label: "Ajuda", icon: HelpCircle },
+  { href: "/help/", label: "Ajuda", icon: HelpCircle },
 ];
 
 interface SidebarProps {
