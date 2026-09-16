@@ -15,11 +15,11 @@ const navItems = [
   { href: "/insights/", label: "Insights", icon: Lightbulb },
   { href: "/clipping/", label: "Clipping", icon: Newspaper },
   { href: "/odsim/", label: "ODSim", icon: Map },
-  { href: "/matmaker", label: "MatMaker", icon: FilePlus }
+  { href: "/matmaker/", label: "MatMaker", icon: FilePlus }
 ];
 
 const footerItems = [
-  { href: "#", label: "Configurações", icon: Settings },
+  { href: "/configuration/", label: "Configurações", icon: Settings },
   { href: "#", label: "Ajuda", icon: HelpCircle },
 ];
 
