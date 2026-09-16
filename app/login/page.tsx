@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/clients";
 import { Eye, EyeOff, LogIn, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import LoadingScreen from "../components/LoadingScreen";
+import LoadingScreen from "../../components/LoadingScreen";
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);

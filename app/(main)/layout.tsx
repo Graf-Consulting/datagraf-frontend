@@ -1,4 +1,4 @@
-import MainLayoutWrapper from "../components/MainLayoutWrapper";
+import MainLayoutWrapper from "../../components/MainLayoutWrapper";
 
 export default async function MainLayout({
   children,
