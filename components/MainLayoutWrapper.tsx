@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/clients";
 import MenuHeader from "./MenuHeader";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
@@ -11,6 +12,16 @@ export default function MainLayoutWrapper({
   children: React.ReactNode;
 }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [showFooter, setShowFooter] = useState(true);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getClaims().then(({ data }) => {
+      if (data?.claims) {
+        setShowFooter(false)
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -24,7 +35,7 @@ export default function MainLayoutWrapper({
           {children}
         </main>
       </div>
-      <Footer />
+      {showFooter && <Footer />}
     </>
   );
 }
