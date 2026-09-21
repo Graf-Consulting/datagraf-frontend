@@ -1,5 +1,6 @@
 import { requireAuth } from "@/lib/auth";
 import { Moon, Sun, Monitor, User, Bell, Globe } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 
 function SoonBadge() {
   return (
@@ -74,14 +75,10 @@ export default async function ConfiguracoesPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 pt-8 pb-16 space-y-8">
       {/* Hero */}
-      <section className="glass-accent rounded-2xl p-8 md:p-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">
-          Configurações
-        </h1>
-        <p className="text-[#94A3B8] text-[15px]">
-          Gerencie sua conta e preferências da plataforma.
-        </p>
-      </section>
+      <PageHero
+        title="Configurações"
+        description="Gerencie sua conta e preferências da plataforma."
+      />
 
       {/* Conta */}
       <section className="glass-card rounded-2xl p-6 md:p-8">

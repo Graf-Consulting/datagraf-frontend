@@ -3,6 +3,7 @@ import {
   BarChart3, Lightbulb, Map, FilePlus, Newspaper,
   Mail, ChevronDown, RefreshCw, GraduationCap,
 } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 
 const futurosTutoriais = [
   { icon: BarChart3, title: "Análises", description: "Como navegar pelos painéis, aplicar filtros e exportar visualizações.", href: "/analises/" },
@@ -35,15 +36,11 @@ export default function AjudaPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 pt-8 pb-16 space-y-12">
       {/* Hero */}
-      <section className="glass-accent rounded-2xl p-8 md:p-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">
-          Ajuda
-        </h1>
-        <p className="text-[#94A3B8] text-[15px] max-w-2xl leading-relaxed">
-          Este será o seu ponto de partida para aprender a usar a plataforma:
-          aqui você encontrará tutoriais e guias passo a passo de cada ferramenta.
-        </p>
-      </section>
+      <PageHero
+        title="Ajuda"
+        description="Este será o seu ponto de partida para aprender a usar a plataforma:
+          aqui você encontrará tutoriais e guias passo a passo de cada ferramenta."
+      />
 
       {/* Aviso de migração — para quem vem do ambiente antigo */}
       <section className="glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-[#467782]">
