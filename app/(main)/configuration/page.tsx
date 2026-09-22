@@ -1,6 +1,6 @@
 import { requireAuth } from "@/lib/auth";
 import { Moon, Sun, Monitor, User, Bell, Globe } from "lucide-react";
-import { PageHero } from "@/components/PageHero";
+import { PageHero } from "@/components/ui/PageHero";
 
 function SoonBadge() {
   return (

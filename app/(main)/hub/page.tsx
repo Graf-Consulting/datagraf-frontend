@@ -1,8 +1,8 @@
 import { LogOut, User, BarChart3, Settings, FileText, Flame, FilePlus, Map, Lightbulb, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { requireAuth } from "@/lib/auth";
-import { PageHero } from "@/components/PageHero";
-import { LinkCard } from "@/components/LinkCard";
+import { PageHero } from "@/components/ui/PageHero";
+import { LinkCard } from "@/components/ui/LinkCard";
 
 export default async function HubPage() {
   const claims = await requireAuth();

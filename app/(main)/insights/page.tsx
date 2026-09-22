@@ -1,4 +1,4 @@
-import { PageHero } from "@/components/PageHero";
+import { PageHero } from "@/components/ui/PageHero";
 
 export default function InsightsPage() {
   return (

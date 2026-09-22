@@ -1,6 +1,6 @@
 "use client";
 
-import ModuleCard from "../../components/ModuleCard";
+import ModuleCard from "../../components/landing/ModuleCard";
 import { Search, BarChart3, LineChart } from "lucide-react";
 
 const modules = [

@@ -3,7 +3,7 @@ import {
   BarChart3, Lightbulb, Map, FilePlus, Newspaper,
   Mail, ChevronDown, RefreshCw, GraduationCap,
 } from "lucide-react";
-import { PageHero } from "@/components/PageHero";
+import { PageHero } from "@/components/ui/PageHero";
 
 const futurosTutoriais = [
   { icon: BarChart3, title: "Análises", description: "Como navegar pelos painéis, aplicar filtros e exportar visualizações.", href: "/analises/" },

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BarChart3, TrendingUp, Ship, Truck, Globe, Anchor, ArrowRight } from "lucide-react";
-import { PageHero } from "@/components/PageHero";
-import { LinkCard } from "@/components/LinkCard";
+import { PageHero } from "@/components/ui/PageHero";
+import { LinkCard } from "@/components/ui/LinkCard";
 
 const analises = [
   {

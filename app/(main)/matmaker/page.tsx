@@ -1,5 +1,5 @@
 import { requireAuth } from "@/lib/auth";
-import { PageHero } from "@/components/PageHero";
+import { PageHero } from "@/components/ui/PageHero";
 
 export default async function MatmakerPage() {
     const user = await requireAuth();

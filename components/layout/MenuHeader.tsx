@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LogIn, LogOut, User, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import LoadingScreen from "./LoadingScreen";
+import LoadingScreen from "../ui/LoadingScreen";
 
 const navLinks = [
   { href: "/", label: "Início" },
