@@ -1,14 +1,7 @@
 import { requireAuth } from "@/lib/auth";
 import { Moon, Sun, Monitor, User, Bell, Globe } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
-
-function SoonBadge() {
-  return (
-    <span className="text-[10px] px-2 py-0.5 bg-[#467782]/10 text-[#6BB6C7] rounded font-medium border border-[#467782]/20">
-      Em breve
-    </span>
-  );
-}
+import { Badge } from "@/components/ui/Badge";
 
 function SettingRow({
   icon: Icon,
@@ -36,7 +29,7 @@ function SettingRow({
         <div>
           <p className="text-sm font-medium text-[#E2E8F0] flex items-center gap-2">
             {title}
-            {disabled && <SoonBadge />}
+            {disabled && <Badge>Em breve</Badge>}
           </p>
           <p className="text-xs text-[#64748B] mt-0.5">{description}</p>
         </div>

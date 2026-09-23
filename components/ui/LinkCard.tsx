@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ExternalLink, type LucideIcon } from "lucide-react";
+import { Badge } from "./Badge";
 
 interface LinkCardProps {
   href: string;
@@ -40,9 +41,7 @@ export function LinkCard({ href, title, description, icon: Icon, tags, meta, ext
           {tags && (
             <div className="flex gap-2 flex-wrap">
               {tags.map((tag) => (
-                <span key={tag} className="text-[10px] px-2 py-0.5 bg-[#467782]/10 text-[#6BB6C7] rounded font-medium border border-[#467782]/20">
-                  {tag}
-                </span>
+                <Badge key={tag}>{tag}</Badge>
               ))}
             </div>
           )}
