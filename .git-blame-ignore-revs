@@ -1,0 +1,5 @@
+# Commits de reformatação em massa, ignorados pelo git blame
+# Uso local: git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# style: format codebase with prettier
+636d006bad2a3f151bc3aa4fa0a4f397119b037f
