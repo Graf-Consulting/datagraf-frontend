@@ -23,21 +23,18 @@ export default async function ODSimPage() {
   ];
 
   return (
-    <main className="max-w-5xl mx-auto p-8 space-y-8">
-      <PageHero
-        title="ODSim"
-        description="Ferramenta de simulação de transporte multimodal."
-      />
+    <main className="mx-auto max-w-5xl space-y-8 p-8">
+      <PageHero title="ODSim" description="Ferramenta de simulação de transporte multimodal." />
 
       {/*Cards*/}
-       <section className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <section className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {tools.map((tool) => (
           <LinkCard
             key={tool.title}
             title={tool.title}
             href={tool.href}
             description={tool.description}
-            icon={tool.icon}            
+            icon={tool.icon}
           />
         ))}
       </section>

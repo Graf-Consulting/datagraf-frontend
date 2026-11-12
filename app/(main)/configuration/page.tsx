@@ -18,25 +18,23 @@ function SettingRow({
 }) {
   return (
     <div
-      className={`flex items-center justify-between gap-4 py-5 border-b border-white/[0.04] last:border-0 ${
+      className={`flex items-center justify-between gap-4 border-b border-white/[0.04] py-5 last:border-0 ${
         disabled ? "opacity-50" : ""
       }`}
     >
       <div className="flex items-center gap-4">
-        <div className="p-2.5 bg-[#467782]/10 rounded-lg shrink-0">
-          <Icon className="w-5 h-5 text-[#6BB6C7]" />
+        <div className="shrink-0 rounded-lg bg-[#467782]/10 p-2.5">
+          <Icon className="h-5 w-5 text-[#6BB6C7]" />
         </div>
         <div>
-          <p className="text-sm font-medium text-[#E2E8F0] flex items-center gap-2">
+          <p className="flex items-center gap-2 text-sm font-medium text-[#E2E8F0]">
             {title}
             {disabled && <Badge>Em breve</Badge>}
           </p>
-          <p className="text-xs text-[#64748B] mt-0.5">{description}</p>
+          <p className="mt-0.5 text-xs text-[#64748B]">{description}</p>
         </div>
       </div>
-      <div className={disabled ? "cursor-not-allowed pointer-events-none" : ""}>
-        {control}
-      </div>
+      <div className={disabled ? "pointer-events-none cursor-not-allowed" : ""}>{control}</div>
     </div>
   );
 }
@@ -45,12 +43,12 @@ function SettingRow({
 function FakeToggle({ on = false }: { on?: boolean }) {
   return (
     <div
-      className={`w-11 h-6 rounded-full relative transition-colors ${
+      className={`relative h-6 w-11 rounded-full transition-colors ${
         on ? "bg-[#467782]" : "bg-[#1C2536]"
       }`}
     >
       <span
-        className={`absolute top-1 w-4 h-4 rounded-full transition-all ${
+        className={`absolute top-1 h-4 w-4 rounded-full transition-all ${
           on ? "right-1 bg-white" : "left-1 bg-[#475569]"
         }`}
       />
@@ -66,7 +64,7 @@ export default async function ConfiguracoesPage() {
   const initial = displayName.charAt(0).toUpperCase();
 
   return (
-    <main className="max-w-3xl mx-auto px-4 pt-8 pb-16 space-y-8">
+    <main className="mx-auto max-w-3xl space-y-8 px-4 pb-16 pt-8">
       {/* Hero */}
       <PageHero
         title="Configurações"
@@ -75,42 +73,41 @@ export default async function ConfiguracoesPage() {
 
       {/* Conta */}
       <section className="glass-card rounded-2xl p-6 md:p-8">
-        <h2 className="text-lg font-semibold text-[#F1F5F9] mb-2">Conta</h2>
+        <h2 className="mb-2 text-lg font-semibold text-[#F1F5F9]">Conta</h2>
         <div className="flex items-center gap-4 py-4">
-          <div className="w-14 h-14 bg-gradient-to-br from-[#4DA0B2] to-[#467782] rounded-full flex items-center justify-center shrink-0">
-            <span className="text-white font-bold text-xl">{initial}</span>
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#4DA0B2] to-[#467782]">
+            <span className="text-xl font-bold text-white">{initial}</span>
           </div>
           <div className="min-w-0">
-            <p className="text-[#E2E8F0] font-medium truncate">{displayName}</p>
-            <p className="text-sm text-[#64748B] truncate">{email}</p>
+            <p className="truncate font-medium text-[#E2E8F0]">{displayName}</p>
+            <p className="truncate text-sm text-[#64748B]">{email}</p>
           </div>
         </div>
-        <p className="text-xs text-[#475569] border-t border-white/[0.04] pt-4">
-          As informações da conta são gerenciadas pelo provedor de login
-          (Google ou Microsoft).
+        <p className="border-t border-white/[0.04] pt-4 text-xs text-[#475569]">
+          As informações da conta são gerenciadas pelo provedor de login (Google ou Microsoft).
         </p>
       </section>
 
       {/* Aparência */}
-      <section className="glass-card rounded-2xl px-6 md:px-8 py-2">
-        <h2 className="text-lg font-semibold text-[#F1F5F9] pt-5">Aparência</h2>
+      <section className="glass-card rounded-2xl px-6 py-2 md:px-8">
+        <h2 className="pt-5 text-lg font-semibold text-[#F1F5F9]">Aparência</h2>
         <SettingRow
           icon={Moon}
           title="Tema"
           description="Alterne entre os temas claro e escuro da plataforma."
           disabled
           control={
-            <div className="flex items-center gap-1 p-1 bg-[#0E0E0E]/60 border border-white/[0.08] rounded-lg">
-              <span className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-md bg-[#467782]/20 text-white">
-                <Moon className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-1 rounded-lg border border-white/[0.08] bg-[#0E0E0E]/60 p-1">
+              <span className="flex items-center gap-1.5 rounded-md bg-[#467782]/20 px-3 py-1.5 text-xs text-white">
+                <Moon className="h-3.5 w-3.5" />
                 Escuro
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-[#475569]">
-                <Sun className="w-3.5 h-3.5" />
+                <Sun className="h-3.5 w-3.5" />
                 Claro
               </span>
-              <span className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs text-[#475569]">
-                <Monitor className="w-3.5 h-3.5" />
+              <span className="hidden items-center gap-1.5 px-3 py-1.5 text-xs text-[#475569] sm:flex">
+                <Monitor className="h-3.5 w-3.5" />
                 Sistema
               </span>
             </div>
@@ -119,10 +116,8 @@ export default async function ConfiguracoesPage() {
       </section>
 
       {/* Notificações */}
-      <section className="glass-card rounded-2xl px-6 md:px-8 py-2">
-        <h2 className="text-lg font-semibold text-[#F1F5F9] pt-5">
-          Notificações
-        </h2>
+      <section className="glass-card rounded-2xl px-6 py-2 md:px-8">
+        <h2 className="pt-5 text-lg font-semibold text-[#F1F5F9]">Notificações</h2>
         <SettingRow
           icon={Bell}
           title="Novos relatórios"
@@ -140,17 +135,15 @@ export default async function ConfiguracoesPage() {
       </section>
 
       {/* Preferências */}
-      <section className="glass-card rounded-2xl px-6 md:px-8 py-2">
-        <h2 className="text-lg font-semibold text-[#F1F5F9] pt-5">
-          Preferências
-        </h2>
+      <section className="glass-card rounded-2xl px-6 py-2 md:px-8">
+        <h2 className="pt-5 text-lg font-semibold text-[#F1F5F9]">Preferências</h2>
         <SettingRow
           icon={Globe}
           title="Idioma"
           description="Idioma da interface da plataforma."
           disabled
           control={
-            <span className="text-xs text-[#94A3B8] px-3 py-1.5 bg-[#0E0E0E]/60 border border-white/[0.08] rounded-lg">
+            <span className="rounded-lg border border-white/[0.08] bg-[#0E0E0E]/60 px-3 py-1.5 text-xs text-[#94A3B8]">
               Português (Brasil)
             </span>
           }

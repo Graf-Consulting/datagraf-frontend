@@ -24,32 +24,34 @@ export default function LoadingScreen({ message = "Carregando..." }: LoadingScre
       style={{ margin: 0, padding: 0, top: 0, left: 0, right: 0, bottom: 0 }}
     >
       {/* Gradient sutil de fundo */}
-      <div className="absolute inset-0 opacity-30" style={{
-        background: "radial-gradient(ellipse 60% 50% at 50% 40%, rgba(70, 119, 130, 0.1) 0%, transparent 70%)"
-      }} />
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 40%, rgba(70, 119, 130, 0.1) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="relative z-10 flex flex-col items-center gap-6">
         {/* Logo pulsando */}
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-16 h-16 bg-gradient-to-br from-[#4DA0B2] to-[#467782] rounded-2xl flex items-center justify-center shadow-lg shadow-[#467782]/30"
+          className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4DA0B2] to-[#467782] shadow-lg shadow-[#467782]/30"
         >
-          <span className="text-white font-bold text-2xl">OD</span>
+          <span className="text-2xl font-bold text-white">OD</span>
         </motion.div>
 
         {/* Spinner */}
-        <div className="relative w-10 h-10">
+        <div className="relative h-10 w-10">
           <div className="absolute inset-0 rounded-full border-2 border-[#1C2536]" />
-          <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#467782] animate-spin" />
+          <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-[#467782]" />
         </div>
 
         {/* Mensagem */}
-        <p className="text-sm text-[#64748B] font-medium tracking-wide">
-          {message}
-        </p>
+        <p className="text-sm font-medium tracking-wide text-[#64748B]">{message}</p>
       </div>
     </motion.div>,
-    document.body
+    document.body,
   );
 }

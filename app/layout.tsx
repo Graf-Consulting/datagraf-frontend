@@ -4,19 +4,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Observatório de Dados",
-  description: "Sistema integrado para análise de dados governamentais e simulação de transporte multimodal.",
+  description:
+    "Sistema integrado para análise de dados governamentais e simulação de transporte multimodal.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen antialiased">
-        {children}
-      </body>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

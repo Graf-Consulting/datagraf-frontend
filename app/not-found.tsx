@@ -4,47 +4,94 @@ import { ArrowLeft, Telescope } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#0E0E0E] relative flex items-center px-6 md:px-16 lg:px-24 overflow-hidden">
+    <main className="relative flex min-h-screen items-center overflow-hidden bg-[#0E0E0E] px-6 md:px-16 lg:px-24">
       {/* === FUNDO: sistema orbital (SVG puro) === */}
       <svg
         aria-hidden
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 h-full w-full"
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
         fill="none"
       >
         {/* Órbitas tracejadas */}
         <ellipse
-          cx="1080" cy="720" rx="620" ry="230"
-          stroke="#467782" strokeOpacity="0.35" strokeWidth="1.5"
+          cx="1080"
+          cy="720"
+          rx="620"
+          ry="230"
+          stroke="#467782"
+          strokeOpacity="0.35"
+          strokeWidth="1.5"
           strokeDasharray="4 10"
           transform="rotate(-18 1080 720)"
         />
         <ellipse
-          cx="1080" cy="720" rx="840" ry="330"
-          stroke="#467782" strokeOpacity="0.18" strokeWidth="1.5"
+          cx="1080"
+          cy="720"
+          rx="840"
+          ry="330"
+          stroke="#467782"
+          strokeOpacity="0.18"
+          strokeWidth="1.5"
           strokeDasharray="4 12"
           transform="rotate(-18 1080 720)"
         />
         <ellipse
-          cx="1250" cy="200" rx="500" ry="170"
-          stroke="#4DA0B2" strokeOpacity="0.15" strokeWidth="1.5"
+          cx="1250"
+          cy="200"
+          rx="500"
+          ry="170"
+          stroke="#4DA0B2"
+          strokeOpacity="0.15"
+          strokeWidth="1.5"
           strokeDasharray="4 10"
           transform="rotate(12 1250 200)"
         />
 
         {/* Planeta principal com anel (canto inferior direito) */}
-        <circle cx="1080" cy="720" r="58" fill="#467782" fillOpacity="0.2" stroke="#6BB6C7" strokeOpacity="0.5" strokeWidth="1.5" />
+        <circle
+          cx="1080"
+          cy="720"
+          r="58"
+          fill="#467782"
+          fillOpacity="0.2"
+          stroke="#6BB6C7"
+          strokeOpacity="0.5"
+          strokeWidth="1.5"
+        />
         <circle cx="1062" cy="702" r="14" fill="#6BB6C7" fillOpacity="0.12" />
         <ellipse
-          cx="1080" cy="720" rx="100" ry="26"
-          stroke="#6BB6C7" strokeOpacity="0.45" strokeWidth="1.5"
+          cx="1080"
+          cy="720"
+          rx="100"
+          ry="26"
+          stroke="#6BB6C7"
+          strokeOpacity="0.45"
+          strokeWidth="1.5"
           transform="rotate(-18 1080 720)"
         />
 
         {/* Planetas menores */}
-        <circle cx="1245" cy="185" r="17" fill="#4DA0B2" fillOpacity="0.25" stroke="#6BB6C7" strokeOpacity="0.4" strokeWidth="1.5" />
-        <circle cx="780" cy="180" r="9" fill="#467782" fillOpacity="0.3" stroke="#6BB6C7" strokeOpacity="0.3" strokeWidth="1.5" />
+        <circle
+          cx="1245"
+          cy="185"
+          r="17"
+          fill="#4DA0B2"
+          fillOpacity="0.25"
+          stroke="#6BB6C7"
+          strokeOpacity="0.4"
+          strokeWidth="1.5"
+        />
+        <circle
+          cx="780"
+          cy="180"
+          r="9"
+          fill="#467782"
+          fillOpacity="0.3"
+          stroke="#6BB6C7"
+          strokeOpacity="0.3"
+          strokeWidth="1.5"
+        />
         <circle cx="1310" cy="480" r="6" fill="#6BB6C7" fillOpacity="0.3" />
 
         {/* Estrelas */}
@@ -65,14 +112,14 @@ export default function NotFound() {
       {/* === 404 fantasma === */}
       <span
         aria-hidden
-        className="absolute right-[2%] top-1/2 -translate-y-1/2 text-[20rem] lg:text-[26rem] font-bold text-white/[0.03] leading-none tracking-tighter select-none hidden md:block"
+        className="absolute right-[2%] top-1/2 hidden -translate-y-1/2 select-none text-[20rem] font-bold leading-none tracking-tighter text-white/[0.03] md:block lg:text-[26rem]"
       >
         404
       </span>
 
       {/* Gradiente sutil */}
       <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-30"
         style={{
           background:
             "radial-gradient(ellipse 60% 50% at 30% 45%, rgba(70, 119, 130, 0.15) 0%, transparent 70%)",
@@ -81,28 +128,28 @@ export default function NotFound() {
 
       {/* === CONTEÚDO: à esquerda === */}
       <div className="relative z-10 max-w-xl">
-        <div className="w-24 h-24 bg-gradient-to-br from-[#4DA0B2] to-[#467782] rounded-3xl flex items-center justify-center shadow-lg shadow-[#467782]/30 mb-10">
-          <Telescope className="w-12 h-12 text-white" />
+        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-[#4DA0B2] to-[#467782] shadow-lg shadow-[#467782]/30">
+          <Telescope className="h-12 w-12 text-white" />
         </div>
 
-        <p className="font-mono text-xs text-[#467782] tracking-[0.35em] mb-4">
+        <p className="mb-4 font-mono text-xs tracking-[0.35em] text-[#467782]">
           ERR 404 // SINAL PERDIDO
         </p>
 
-        <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-5">
+        <h1 className="mb-5 text-5xl font-bold tracking-tight text-white md:text-6xl">
           Houston, temos um problema.
         </h1>
 
-        <p className="text-[#94A3B8] text-lg leading-relaxed mb-10 max-w-md">
-          Apontamos todos os nossos telescópios, mas esta página está fora do
-          campo de observação. É possível que o endereço tenha mudado de órbita, ou que nunca tenha existido.
+        <p className="mb-10 max-w-md text-lg leading-relaxed text-[#94A3B8]">
+          Apontamos todos os nossos telescópios, mas esta página está fora do campo de observação. É
+          possível que o endereço tenha mudado de órbita, ou que nunca tenha existido.
         </p>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-[#467782] to-[#3D6A75] hover:from-[#4DA0B2] hover:to-[#467782] transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#467782] to-[#3D6A75] px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:from-[#4DA0B2] hover:to-[#467782]"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="h-4 w-4" />
           Voltar para a base
         </Link>
       </div>

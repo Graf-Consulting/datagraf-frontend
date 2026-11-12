@@ -1,17 +1,49 @@
 import Link from "next/link";
 import {
-  BarChart3, Lightbulb, Map, FilePlus, Newspaper,
-  Mail, ChevronDown, RefreshCw, GraduationCap,
+  BarChart3,
+  Lightbulb,
+  Map,
+  FilePlus,
+  Newspaper,
+  Mail,
+  ChevronDown,
+  RefreshCw,
+  GraduationCap,
 } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { requireAuth } from "@/lib/auth";
 
 const futurosTutoriais = [
-  { icon: BarChart3, title: "Análises", description: "Como navegar pelos painéis, aplicar filtros e exportar visualizações.", href: "/analises/" },
-  { icon: Lightbulb, title: "Insights", description: "Como ler e aproveitar os relatórios técnicos publicados.", href: "/insights/" },
-  { icon: Map, title: "ODSim", description: "Como montar um cenário, rodar a simulação e interpretar os resultados.", href: "/odsim/" },
-  { icon: FilePlus, title: "MatMaker", description: "Como construir e calibrar matrizes origem-destino.", href: "/matmaker/" },
-  { icon: Newspaper, title: "Clipping", description: "Como acompanhar e organizar as notícias do setor.", href: "/clipping/" },
+  {
+    icon: BarChart3,
+    title: "Análises",
+    description: "Como navegar pelos painéis, aplicar filtros e exportar visualizações.",
+    href: "/analises/",
+  },
+  {
+    icon: Lightbulb,
+    title: "Insights",
+    description: "Como ler e aproveitar os relatórios técnicos publicados.",
+    href: "/insights/",
+  },
+  {
+    icon: Map,
+    title: "ODSim",
+    description: "Como montar um cenário, rodar a simulação e interpretar os resultados.",
+    href: "/odsim/",
+  },
+  {
+    icon: FilePlus,
+    title: "MatMaker",
+    description: "Como construir e calibrar matrizes origem-destino.",
+    href: "/matmaker/",
+  },
+  {
+    icon: Newspaper,
+    title: "Clipping",
+    description: "Como acompanhar e organizar as notícias do setor.",
+    href: "/clipping/",
+  },
 ];
 
 const faqs = [
@@ -37,7 +69,7 @@ export default async function AjudaPage() {
   await requireAuth();
 
   return (
-    <main className="max-w-4xl mx-auto px-4 pt-8 pb-16 space-y-12">
+    <main className="mx-auto max-w-4xl space-y-12 px-4 pb-16 pt-8">
       {/* Hero */}
       <PageHero
         title="Ajuda"
@@ -46,20 +78,22 @@ export default async function AjudaPage() {
       />
 
       {/* Aviso de migração — para quem vem do ambiente antigo */}
-      <section className="glass-card rounded-2xl p-6 md:p-8 border-l-4 border-l-[#467782]">
+      <section className="glass-card rounded-2xl border-l-4 border-l-[#467782] p-6 md:p-8">
         <div className="flex items-start gap-4">
-          <div className="p-3 bg-[#467782]/10 rounded-xl shrink-0">
-            <RefreshCw className="w-5 h-5 text-[#6BB6C7]" />
+          <div className="shrink-0 rounded-xl bg-[#467782]/10 p-3">
+            <RefreshCw className="h-5 w-5 text-[#6BB6C7]" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-[#F1F5F9] mb-2">
+            <h2 className="mb-2 text-lg font-semibold text-[#F1F5F9]">
               Vindo do ambiente anterior?
             </h2>
-            <p className="text-sm text-[#64748B] leading-relaxed">
-              Estamos migrando as ferramentas da plataforma antiga para cá.
-              Algumas telas vão mudar de cara durante o processo, mas as{" "}
-              <span className="text-[#94A3B8]">regras de negócio que você já conhece permanecem as mesmas</span> —
-              nada do que você aprendeu será perdido.
+            <p className="text-sm leading-relaxed text-[#64748B]">
+              Estamos migrando as ferramentas da plataforma antiga para cá. Algumas telas vão mudar
+              de cara durante o processo, mas as{" "}
+              <span className="text-[#94A3B8]">
+                regras de negócio que você já conhece permanecem as mesmas
+              </span>{" "}
+              — nada do que você aprendeu será perdido.
             </p>
           </div>
         </div>
@@ -67,33 +101,31 @@ export default async function AjudaPage() {
 
       {/* Tutoriais por ferramenta */}
       <section>
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2.5 bg-[#467782]/10 rounded-lg">
-            <GraduationCap className="w-5 h-5 text-[#6BB6C7]" />
+        <div className="mb-6 flex items-center gap-3">
+          <div className="rounded-lg bg-[#467782]/10 p-2.5">
+            <GraduationCap className="h-5 w-5 text-[#6BB6C7]" />
           </div>
-          <h2 className="text-xl font-bold text-[#F1F5F9] tracking-tight">
+          <h2 className="text-xl font-bold tracking-tight text-[#F1F5F9]">
             Tutoriais por ferramenta
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {futurosTutoriais.map((guia) => (
-            <div key={guia.title} className="glass-card rounded-xl p-6 flex items-start gap-4">
-              <div className="p-3 bg-[#467782]/10 rounded-xl shrink-0">
-                <guia.icon className="w-5 h-5 text-[#6BB6C7]" />
+            <div key={guia.title} className="glass-card flex items-start gap-4 rounded-xl p-6">
+              <div className="shrink-0 rounded-xl bg-[#467782]/10 p-3">
+                <guia.icon className="h-5 w-5 text-[#6BB6C7]" />
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-[#E2E8F0] mb-1 flex items-center gap-2 flex-wrap">
+              <div className="min-w-0 flex-1">
+                <h3 className="mb-1 flex flex-wrap items-center gap-2 font-semibold text-[#E2E8F0]">
                   {guia.title}
-                  <span className="text-[10px] px-2 py-0.5 bg-[#467782]/10 text-[#6BB6C7] rounded font-medium border border-[#467782]/20">
+                  <span className="rounded border border-[#467782]/20 bg-[#467782]/10 px-2 py-0.5 text-[10px] font-medium text-[#6BB6C7]">
                     Tutorial em breve
                   </span>
                 </h3>
-                <p className="text-sm text-[#64748B] leading-relaxed mb-3">
-                  {guia.description}
-                </p>
+                <p className="mb-3 text-sm leading-relaxed text-[#64748B]">{guia.description}</p>
                 <Link
                   href={guia.href}
-                  className="text-xs text-[#6BB6C7] hover:text-[#98CDD9] transition-colors"
+                  className="text-xs text-[#6BB6C7] transition-colors hover:text-[#98CDD9]"
                 >
                   Abrir ferramenta →
                 </Link>
@@ -105,19 +137,17 @@ export default async function AjudaPage() {
 
       {/* FAQ */}
       <section>
-        <h2 className="text-xl font-bold text-[#F1F5F9] tracking-tight mb-6">
+        <h2 className="mb-6 text-xl font-bold tracking-tight text-[#F1F5F9]">
           Perguntas frequentes
         </h2>
         <div className="space-y-3">
           {faqs.map((faq) => (
-            <details key={faq.q} className="group glass-card rounded-xl overflow-hidden">
-              <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none text-sm font-medium text-[#E2E8F0] hover:text-white transition-colors [&::-webkit-details-marker]:hidden">
+            <details key={faq.q} className="glass-card group overflow-hidden rounded-xl">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-sm font-medium text-[#E2E8F0] transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
                 {faq.q}
-                <ChevronDown className="w-4 h-4 text-[#475569] group-open:rotate-180 transition-transform shrink-0" />
+                <ChevronDown className="h-4 w-4 shrink-0 text-[#475569] transition-transform group-open:rotate-180" />
               </summary>
-              <p className="px-5 pb-5 text-sm text-[#64748B] leading-relaxed">
-                {faq.a}
-              </p>
+              <p className="px-5 pb-5 text-sm leading-relaxed text-[#64748B]">{faq.a}</p>
             </details>
           ))}
         </div>
@@ -125,17 +155,15 @@ export default async function AjudaPage() {
 
       {/* Contato */}
       <section className="glass-accent rounded-2xl p-8 text-center">
-        <h2 className="text-xl font-semibold text-white mb-2">
-          Ainda precisa de ajuda?
-        </h2>
-        <p className="text-sm text-[#94A3B8] mb-6">
+        <h2 className="mb-2 text-xl font-semibold text-white">Ainda precisa de ajuda?</h2>
+        <p className="mb-6 text-sm text-[#94A3B8]">
           Não achou o que procurava? Fale diretamente com a nossa equipe.
         </p>
         <a
           href="mailto:contato@graf.com.br" // ← troca pelo e-mail real
-          className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-[#467782] to-[#3D6A75] hover:from-[#4DA0B2] hover:to-[#467782] transition-all duration-300"
+          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#467782] to-[#3D6A75] px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:from-[#4DA0B2] hover:to-[#467782]"
         >
-          <Mail className="w-4 h-4" />
+          <Mail className="h-4 w-4" />
           Falar com o suporte
         </a>
       </section>

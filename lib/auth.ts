@@ -13,4 +13,3 @@ export const requireAuth = cache(async () => {
 
   return data.claims;
 });
-

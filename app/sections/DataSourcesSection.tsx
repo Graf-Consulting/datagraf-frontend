@@ -52,10 +52,14 @@ export default function DataSourcesSection() {
   return (
     <section>
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-[#F1F5F9] tracking-tight">Fontes de dados integradas</h2>
-        <p className="text-[#64748B] mt-2 text-[15px]">Dados públicos governamentais consolidados</p>
+        <h2 className="text-2xl font-bold tracking-tight text-[#F1F5F9]">
+          Fontes de dados integradas
+        </h2>
+        <p className="mt-2 text-[15px] text-[#64748B]">
+          Dados públicos governamentais consolidados
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {sources.map((src) => (
           <DataSourceCard key={src.name} {...src} />
         ))}

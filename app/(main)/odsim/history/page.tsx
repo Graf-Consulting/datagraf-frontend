@@ -7,23 +7,21 @@ export default async function HistoryPage() {
   const user = await requireAuth();
 
   return (
-    <main className="max-w-5xl mx-auto p-8 space-y-6">
+    <main className="mx-auto max-w-5xl space-y-6 p-8">
       <Link
         href="/odsim/"
-        className="inline-flex items-center gap-2 text-sm text-[#64748B] hover:text-[#6BB6C7] transition-colors"
+        className="inline-flex items-center gap-2 text-sm text-[#64748B] transition-colors hover:text-[#6BB6C7]"
       >
-        <ArrowLeft className="w-4 h-4" />
+        <ArrowLeft className="h-4 w-4" />
         Voltar para ODSim
       </Link>
 
-      <section className="glass-accent rounded-2xl p-8 md:p-10 text-center">
-        <div className="w-16 h-16 bg-[#467782]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-          <BookOpen className="w-8 h-8 text-[#467782]" />
+      <section className="glass-accent rounded-2xl p-8 text-center md:p-10">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#467782]/10">
+          <BookOpen className="h-8 w-8 text-[#467782]" />
         </div>
-        <h1 className="text-2xl font-bold text-white mb-2">Histórico</h1>
-        <p className="text-[#94A3B8] max-w-md mx-auto">
-          Histórico de simulações em migração.
-        </p>
+        <h1 className="mb-2 text-2xl font-bold text-white">Histórico</h1>
+        <p className="mx-auto max-w-md text-[#94A3B8]">Histórico de simulações em migração.</p>
       </section>
     </main>
   );

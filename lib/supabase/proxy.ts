@@ -6,7 +6,7 @@ const PROTECTED_PREFIXES = ["/hub", "/odsim", "/matmaker", "/clipping", "/config
 
 function isProtected(pathname: string) {
   return PROTECTED_PREFIXES.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 }
 
@@ -40,7 +40,7 @@ export async function updateSession(request: NextRequest) {
           });
         },
       },
-    }
+    },
   );
 
   // Não colocar código entre createServerClient e getClaims()

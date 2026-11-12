@@ -10,7 +10,7 @@ const kpis = [
 
 export default function KpisSection() {
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
       {kpis.map((kpi) => (
         <KpiCard key={kpi.label} {...kpi} />
       ))}

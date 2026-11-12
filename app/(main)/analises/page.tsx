@@ -7,7 +7,8 @@ const analises = [
   {
     slug: "movimentacao-portuaria",
     title: "Movimentação Portuária",
-    description: "Análise de carga e descarga nos principais portos brasileiros com dados da ANTAQ.",
+    description:
+      "Análise de carga e descarga nos principais portos brasileiros com dados da ANTAQ.",
     icon: Ship,
     tags: ["ANTAQ", "Portos"],
     updatedAt: "Atualizado ontem",
@@ -15,7 +16,8 @@ const analises = [
   {
     slug: "transporte-rodoviario",
     title: "Transporte Rodoviário",
-    description: "Panorama do transporte de cargas por rodovia, incluindo piso mínimo e custos operacionais.",
+    description:
+      "Panorama do transporte de cargas por rodovia, incluindo piso mínimo e custos operacionais.",
     icon: Truck,
     tags: ["ANTT", "Rodovias"],
     updatedAt: "Atualizado semanalmente",
@@ -23,7 +25,8 @@ const analises = [
   {
     slug: "comex-stat",
     title: "Comércio Exterior",
-    description: "Estatísticas de importação e exportação por estado, produto e parceiro comercial.",
+    description:
+      "Estatísticas de importação e exportação por estado, produto e parceiro comercial.",
     icon: Globe,
     tags: ["ComexStat", "MDIC"],
     updatedAt: "Atualizado mensalmente",
@@ -31,7 +34,8 @@ const analises = [
   {
     slug: "demurrage-portuaria",
     title: "Demurrage Portuária",
-    description: "Análise de custos e tempos de demurrage a partir dos dados de movimentação portuária.",
+    description:
+      "Análise de custos e tempos de demurrage a partir dos dados de movimentação portuária.",
     icon: Anchor,
     tags: ["ANTAQ", "Custos"],
     updatedAt: "Nova análise",
@@ -56,25 +60,21 @@ const analises = [
 
 export default function AnalisesPage() {
   return (
-    <main className="max-w-6xl mx-auto px-4 pt-8 pb-16 space-y-12">
-      <PageHero 
+    <main className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-8">
+      <PageHero
         title="Análises"
         description="Painéis interativos e relatórios técnicos desenvolvidos pela GRAF. 
           Explore dados públicos de infraestrutura e transporte multimodal."
       />
       <section>
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-bold text-[#F1F5F9] tracking-tight">
-            Painéis disponíveis
-          </h2>
-          <span className="text-xs text-[#64748B] font-mono">
-            {analises.length} painéis
-          </span>
+        <div className="mb-8 flex items-center justify-between">
+          <h2 className="text-xl font-bold tracking-tight text-[#F1F5F9]">Painéis disponíveis</h2>
+          <span className="font-mono text-xs text-[#64748B]">{analises.length} painéis</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {analises.map((a) => (
-            <LinkCard 
+            <LinkCard
               key={a.slug}
               href={`/analises/${a.slug}/`}
               title={a.title}
@@ -83,7 +83,6 @@ export default function AnalisesPage() {
               tags={a.tags}
               meta={a.updatedAt}
             />
-            
           ))}
         </div>
       </section>
