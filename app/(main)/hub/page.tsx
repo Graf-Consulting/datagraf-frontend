@@ -12,38 +12,38 @@ export default async function HubPage() {
       title: "Análises",
       description: "Acesse os painéis e relatórios técnicos.",
       icon: BarChart3,
-      href: "/analises/",
+      href: "/analises",
     },
     {
       title: "Insights",
       description:
         "Análises aprofundadas e relatórios técnicos sobre infraestrutura e transporte multimodal.",
       icon: Lightbulb,
-      href: "/insights/",
+      href: "/insights",
     },
     {
       title: "Simulações",
       description: "Cenários de transporte multimodal.",
       icon: Map,
-      href: "/odsim/simulator/",
+      href: "/odsim/simulator",
     },
     {
       title: "Histórico de Simulações",
       description: "Acesse e gerencie suas simulações anteriores.",
       icon: BookOpen,
-      href: "/odsim/history/",
+      href: "/odsim/history",
     },
     {
       title: "MatMaker",
       description: "Matrizes origem-destino.",
       icon: FilePlus,
-      href: "/matmaker/",
+      href: "/matmaker",
     },
     {
       title: "Configurações",
       description: "Gerencie sua conta e preferências.",
       icon: Settings,
-      href: "/configuration/",
+      href: "/configuration",
     },
   ];
 

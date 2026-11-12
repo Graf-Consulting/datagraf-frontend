@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/clients";
 import { usePathname } from "next/navigation";
+import { isActivePath } from "@/lib/navigation";
 import { useState } from "react";
 import { LogIn, LogOut, User } from "lucide-react";
 import Link from "next/link";
@@ -11,8 +12,8 @@ import { NativMark } from "@/components/ui/NativMark";
 
 const navLinks = [
   { href: "/", label: "Início" },
-  { href: "/analises/", label: "Análises" },
-  { href: "/insights/", label: "Insights" },
+  { href: "/analises", label: "Análises" },
+  { href: "/insights", label: "Insights" },
 ];
 
 export default function MenuHeader() {
@@ -49,8 +50,7 @@ export default function MenuHeader() {
         {!loading && !user && (
           <nav className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/");
+              const isActive = isActivePath(pathname, link.href);
               return (
                 <Link
                   key={link.href}
@@ -91,7 +91,7 @@ export default function MenuHeader() {
               </div>
             ) : (
               <Link
-                href="/login/"
+                href="/login"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-all duration-300"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[#467782] to-[#3D6A75] transition-all duration-300 group-hover:from-[#4DA0B2] group-hover:to-[#467782]" />

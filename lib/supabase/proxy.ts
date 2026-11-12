@@ -48,7 +48,7 @@ export async function updateSession(request: NextRequest) {
 
   if (!data?.claims && isProtected(request.nextUrl.pathname)) {
     const url = request.nextUrl.clone();
-    url.pathname = "/login/";
+    url.pathname = "/login";
     url.search = "";
 
     // O redirect precisa levar os cookies e headers que o setAll gerou

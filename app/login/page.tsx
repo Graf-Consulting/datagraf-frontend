@@ -17,7 +17,7 @@ export default function LoginPage() {
     await supabase.auth.signInWithOAuth({
       provider: "azure",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback/`,
+        redirectTo: `${window.location.origin}/auth/callback`,
         scopes: "openid email profile User.Read",
         queryParams: {
           prompt: "select_account",
@@ -31,7 +31,7 @@ export default function LoginPage() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback/`,
+        redirectTo: `${window.location.origin}/auth/callback`,
         queryParams: {
           prompt: "select_account",
         },

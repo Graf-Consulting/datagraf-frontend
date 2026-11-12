@@ -64,7 +64,7 @@ export default async function AnaliseDetailPage({ params }: { params: Promise<{ 
       {/* Breadcrumb + Voltar */}
       <div>
         <Link
-          href="/analises/"
+          href="/analises"
           className="mb-6 inline-flex items-center gap-2 text-sm text-[#64748B] transition-colors hover:text-[#6BB6C7]"
         >
           <ArrowLeft className="h-4 w-4" />

@@ -75,7 +75,7 @@ export default function AnalisesPage() {
           {analises.map((a) => (
             <LinkCard
               key={a.slug}
-              href={`/analises/${a.slug}/`}
+              href={`/analises/${a.slug}`}
               title={a.title}
               description={a.description}
               icon={a.icon}

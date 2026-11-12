@@ -8,7 +8,7 @@ export default async function HistoryPage() {
   return (
     <main className="mx-auto max-w-5xl space-y-6 p-8">
       <Link
-        href="/odsim/"
+        href="/odsim"
         className="inline-flex items-center gap-2 text-sm text-[#64748B] transition-colors hover:text-[#6BB6C7]"
       >
         <ArrowLeft className="h-4 w-4" />

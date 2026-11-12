@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isActivePath } from "@/lib/navigation";
 import {
   Home,
   BarChart3,
@@ -17,17 +18,17 @@ import {
 import { useAuth } from "./AuthProvider";
 
 const navItems = [
-  { href: "/hub/", label: "Início", icon: Home },
-  { href: "/analises/", label: "Análises", icon: BarChart3 },
-  { href: "/insights/", label: "Insights", icon: Lightbulb },
-  { href: "/clipping/", label: "Clipping", icon: Newspaper },
-  { href: "/odsim/", label: "ODSim", icon: Map },
-  { href: "/matmaker/", label: "MatMaker", icon: FilePlus },
+  { href: "/hub", label: "Início", icon: Home },
+  { href: "/analises", label: "Análises", icon: BarChart3 },
+  { href: "/insights", label: "Insights", icon: Lightbulb },
+  { href: "/clipping", label: "Clipping", icon: Newspaper },
+  { href: "/odsim", label: "ODSim", icon: Map },
+  { href: "/matmaker", label: "MatMaker", icon: FilePlus },
 ];
 
 const footerItems = [
-  { href: "/configuration/", label: "Configurações", icon: Settings },
-  { href: "/help/", label: "Ajuda", icon: HelpCircle },
+  { href: "/configuration", label: "Configurações", icon: Settings },
+  { href: "/help", label: "Ajuda", icon: HelpCircle },
 ];
 
 interface SidebarProps {
@@ -68,8 +69,7 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
 
         <nav className="space-y-1">
           {navItems.map((item) => {
-            const isActive =
-              pathname === item.href || (pathname.startsWith(item.href) && item.href !== "/hub/");
+            const isActive = isActivePath(pathname, item.href);
             const Icon = item.icon;
 
             return (
@@ -116,7 +116,7 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
         </p>
 
         {footerItems.map((item) => {
-          const isActive = pathname.startsWith(item.href);
+          const isActive = isActivePath(pathname, item.href);
           const Icon = item.icon;
           return (
             <Link

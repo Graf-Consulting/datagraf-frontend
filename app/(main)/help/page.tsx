@@ -18,31 +18,31 @@ const futurosTutoriais = [
     icon: BarChart3,
     title: "Análises",
     description: "Como navegar pelos painéis, aplicar filtros e exportar visualizações.",
-    href: "/analises/",
+    href: "/analises",
   },
   {
     icon: Lightbulb,
     title: "Insights",
     description: "Como ler e aproveitar os relatórios técnicos publicados.",
-    href: "/insights/",
+    href: "/insights",
   },
   {
     icon: Map,
     title: "ODSim",
     description: "Como montar um cenário, rodar a simulação e interpretar os resultados.",
-    href: "/odsim/",
+    href: "/odsim",
   },
   {
     icon: FilePlus,
     title: "MatMaker",
     description: "Como construir e calibrar matrizes origem-destino.",
-    href: "/matmaker/",
+    href: "/matmaker",
   },
   {
     icon: Newspaper,
     title: "Clipping",
     description: "Como acompanhar e organizar as notícias do setor.",
-    href: "/clipping/",
+    href: "/clipping",
   },
 ];
 

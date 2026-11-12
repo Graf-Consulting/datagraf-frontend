@@ -11,13 +11,13 @@ export default async function ODSimPage() {
       title: "Simulador",
       description: "Crie e execute simulações de transporte multimodal com dados reais.",
       icon: MapPin,
-      href: "/odsim/simulator/",
+      href: "/odsim/simulator",
     },
     {
       title: "Histórico",
       description: "Acesse e gerencie suas simulações anteriores.",
       icon: BookOpen,
-      href: "/odsim/history/",
+      href: "/odsim/history",
     },
   ];
 
