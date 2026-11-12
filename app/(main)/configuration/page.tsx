@@ -151,7 +151,7 @@ export default async function ConfiguracoesPage() {
       </section>
 
       <p className="text-center text-xs text-[#475569]">
-        Observatório de Dados · versão {process.env.NEXT_PUBLIC_APP_VERSION}
+        Nativ · versão {process.env.NEXT_PUBLIC_APP_VERSION}
       </p>
     </main>
   );

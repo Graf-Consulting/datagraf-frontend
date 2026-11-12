@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/clients";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import { NativMark } from "@/components/ui/NativMark";
 
 export default function LoginPage() {
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -61,17 +62,13 @@ export default function LoginPage() {
             className="inline-flex items-center gap-2 text-sm text-[#64748B] transition-colors hover:text-[#6BB6C7]"
           >
             <ArrowLeft className="h-4 w-4" />
-            Voltar para o Observatório
+            Voltar para o Nativ
           </Link>
         </div>
 
         <div className="relative z-10 max-w-md">
-          <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4DA0B2] to-[#467782] shadow-lg shadow-[#467782]/20">
-            <span className="text-2xl font-bold text-white">OD</span>
-          </div>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">
-            Observatório de Dados
-          </h1>
+          <NativMark className="mb-8 h-16 w-16 shadow-lg shadow-[#467782]/20" />
+          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">Nativ</h1>
           <p className="text-lg leading-relaxed text-[#94A3B8]">
             Sistema integrado de inteligência analítica para infraestrutura e transporte multimodal.
           </p>
@@ -97,9 +94,7 @@ export default function LoginPage() {
 
         <div className="relative z-10 w-full max-w-md">
           <div className="mb-8 flex items-center justify-center lg:hidden">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#4DA0B2] to-[#467782]">
-              <span className="text-lg font-bold text-white">OD</span>
-            </div>
+            <NativMark className="h-12 w-12" />
           </div>
 
           <div className="glass-card rounded-2xl p-8 md:p-12">

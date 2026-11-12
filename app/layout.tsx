@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Observatório de Dados",
+  title: "Nativ",
   description:
     "Sistema integrado para análise de dados governamentais e simulação de transporte multimodal.",
 };

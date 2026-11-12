@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { NativMark } from "@/components/ui/NativMark";
 
 export default function Footer() {
   return (
@@ -10,11 +11,9 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Esquerda: Logo + descrição */}
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#4DA0B2] to-[#467782]">
-              <span className="text-xs font-bold text-white">OD</span>
-            </div>
+            <NativMark className="h-8 w-8" />
             <div>
-              <p className="text-sm font-medium text-[#E2E8F0]">Observatório de Dados</p>
+              <p className="text-sm font-medium text-[#E2E8F0]">Nativ</p>
               <p className="text-xs text-[#64748B]">Powered by GRAF Infra Consulting</p>
             </div>
           </div>

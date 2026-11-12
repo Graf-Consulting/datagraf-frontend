@@ -49,10 +49,7 @@ export default async function HubPage() {
 
   return (
     <main className="mx-auto max-w-6xl space-y-12 px-4 pb-16 pt-8">
-      <PageHero
-        title={`Olá, ${displayName}!`}
-        description="Seja bem-vindo ao Observatório de Dados."
-      />
+      <PageHero title={`Olá, ${displayName}!`} description="Seja bem-vindo ao Nativ." />
 
       {/* Grid de acesso rápido */}
       <section>

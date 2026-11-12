@@ -2,6 +2,7 @@
 import { useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
+import { NativMark } from "./NativMark";
 
 interface LoadingScreenProps {
   message?: string;
@@ -42,9 +43,9 @@ export default function LoadingScreen({ message = "Carregando..." }: LoadingScre
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4DA0B2] to-[#467782] shadow-lg shadow-[#467782]/30"
+          className="h-16 w-16 rounded-[22%] shadow-lg shadow-[#467782]/30"
         >
-          <span className="text-2xl font-bold text-white">OD</span>
+          <NativMark className="h-full w-full" />
         </motion.div>
 
         {/* Spinner */}

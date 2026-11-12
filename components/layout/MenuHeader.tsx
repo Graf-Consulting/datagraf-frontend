@@ -7,6 +7,7 @@ import { LogIn, LogOut, User } from "lucide-react";
 import Link from "next/link";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import { useAuth } from "./AuthProvider";
+import { NativMark } from "@/components/ui/NativMark";
 
 const navLinks = [
   { href: "/", label: "Início" },
@@ -39,11 +40,9 @@ export default function MenuHeader() {
 
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="group flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#4DA0B2] to-[#467782] shadow-lg shadow-[#467782]/20">
-            <span className="text-sm font-bold tracking-tight text-white">OD</span>
-          </div>
+          <NativMark className="h-9 w-9 shadow-lg shadow-[#467782]/20" />
           <span className="font-semibold text-gray-100 transition-colors duration-300 group-hover:text-[#6BB6C7]">
-            Observatório de Dados
+            Nativ
           </span>
         </Link>
 
