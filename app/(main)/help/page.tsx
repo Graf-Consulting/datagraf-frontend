@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Como funciona o login?",
-    a: "Usamos login com Google ou Microsoft — você usa uma conta que já tem, sem criar senha nova. Também é possível entrar com e-mail e senha, se preferir.",
+    a: "Usamos login com Google ou Microsoft — você usa uma conta que já tem, sem criar senha nova.",
   },
   {
     q: "De onde vêm os dados das análises?",
