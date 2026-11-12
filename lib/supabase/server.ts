@@ -20,7 +20,7 @@ export async function createClient() {
               cookieStore.set(name, value, options);
             });
           } catch {
-            // Ignorado — middleware cuida da atualização das cookies
+            // Ignorado — o proxy cuida da atualização das cookies
           }
         },
       },

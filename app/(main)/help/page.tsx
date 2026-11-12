@@ -4,6 +4,7 @@ import {
   Mail, ChevronDown, RefreshCw, GraduationCap,
 } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
+import { requireAuth } from "@/lib/auth";
 
 const futurosTutoriais = [
   { icon: BarChart3, title: "Análises", description: "Como navegar pelos painéis, aplicar filtros e exportar visualizações.", href: "/analises/" },
@@ -32,7 +33,9 @@ const faqs = [
   },
 ];
 
-export default function AjudaPage() {
+export default async function AjudaPage() {
+  await requireAuth();
+
   return (
     <main className="max-w-4xl mx-auto px-4 pt-8 pb-16 space-y-12">
       {/* Hero */}
