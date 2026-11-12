@@ -1,10 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import HeroSection from "../sections/HeroSection";
-import KpisSection from "../sections/KpisSection";
-import ModulesSection from "../sections/ModulesSection";
-import DataSourcesSection from "../sections/DataSourcesSection";
-import UpdatesSection from "../sections/UpdatesSection";
+import HeroSection from "@/app/sections/HeroSection";
+import KpisSection from "@/app/sections/KpisSection";
+import ModulesSection from "@/app/sections/ModulesSection";
+import DataSourcesSection from "@/app/sections/DataSourcesSection";
+import UpdatesSection from "@/app/sections/UpdatesSection";
 
 export default async function Home() {
   const supabase = await createClient();

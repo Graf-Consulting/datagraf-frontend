@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LogIn, LogOut, User } from "lucide-react";
 import Link from "next/link";
-import LoadingScreen from "../ui/LoadingScreen";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 import { useAuth } from "./AuthProvider";
 
 const navLinks = [

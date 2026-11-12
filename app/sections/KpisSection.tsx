@@ -1,6 +1,6 @@
 "use client";
 
-import KpiCard from "../../components/landing/KpiCard";
+import KpiCard from "@/components/landing/KpiCard";
 
 const kpis = [
   { label: "Registros integrados", value: "15m+", delta: "5", deltaPositive: true },

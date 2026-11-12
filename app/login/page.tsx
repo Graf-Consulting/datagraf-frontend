@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/clients";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import LoadingScreen from "../../components/ui/LoadingScreen";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 export default function LoginPage() {
   const [isRedirecting, setIsRedirecting] = useState(false);

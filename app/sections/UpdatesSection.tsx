@@ -1,6 +1,6 @@
 "use client";
 
-import UpdateCard from "../../components/landing/UpdateCard";
+import UpdateCard from "@/components/landing/UpdateCard";
 import { Puzzle, TrendingUp } from "lucide-react";
 
 const updates = [

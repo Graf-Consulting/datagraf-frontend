@@ -1,6 +1,6 @@
 "use client";
 
-import DataSourceCard from "../../components/landing/DataSourceCard";
+import DataSourceCard from "@/components/landing/DataSourceCard";
 import { Anchor, Truck, Globe, Package, FileText, Compass } from "lucide-react";
 
 const sources = [
