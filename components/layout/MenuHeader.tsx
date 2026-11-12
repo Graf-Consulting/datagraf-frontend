@@ -2,10 +2,11 @@
 
 import { createClient } from "@/lib/supabase/clients";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { LogIn, LogOut, User, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { LogIn, LogOut, User } from "lucide-react";
 import Link from "next/link";
 import LoadingScreen from "../ui/LoadingScreen";
+import { useAuth } from "./AuthProvider";
 
 const navLinks = [
   { href: "/", label: "Início" },
@@ -16,30 +17,12 @@ const navLinks = [
 
 export default function MenuHeader() {
   const pathname = usePathname();
-  const [user, setUser] = useState<any>(null);
+  const { user, loading } = useAuth();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const supabase = createClient();
-
-  useEffect(() => {
-    const getUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user);
-      setLoading(false);
-    };
-    getUser();
-
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => listener.subscription.unsubscribe();
-  }, []);
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
-    await supabase.auth.signOut();
+    await createClient().auth.signOut();
     window.location.href = "/";
   };
   if (isLoggingOut) {

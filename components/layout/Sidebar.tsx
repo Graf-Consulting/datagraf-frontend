@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/clients";
 import { Home, BarChart3, Lightbulb, Settings, HelpCircle,
     Map, FilePlus, Newspaper,
-    ChevronLeft, ChevronRight, 
-    Icon} from "lucide-react";
+    ChevronLeft, ChevronRight } from "lucide-react";
+import { useAuth } from "./AuthProvider";
 
 const navItems = [
   { href: "/hub/", label: "Início", icon: Home },
@@ -30,25 +28,7 @@ interface SidebarProps {
 
 export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
     const pathname = usePathname();
-    const [user, setUser] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
-    const supabase = createClient();
-
-    useEffect(() => {
-        const getUser = async () => {
-            const { data } = await supabase.auth.getUser();
-            setUser(data.user);
-            setLoading(false);
-        };
-        getUser();
-
-        const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-            setUser(session?.user ?? null);
-            setLoading(false);
-        });
-
-        return () => listener.subscription.unsubscribe();
-    }, []);
+    const { user, loading } = useAuth();
 
     if (loading || !user) return null;
 
@@ -88,13 +68,13 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        className={`group relative flex items-center py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 ${
                           isActive
-                            ? "text-[#6BB6C7] bg-[#467782]/10 border border-[#467782]/20"
-                            : "text-[#94A3B8] hover:text-white hover:bg-white/[0.04]"
-                        } ${isCollapsed ? "justify-center px-2" : ""}`}
+                            ? "text-[#6BB6C7] bg-[#467782]/10 border-[#467782]/20"
+                            : "text-[#94A3B8] border-transparent hover:text-white hover:bg-white/[0.04]"
+                        } ${isCollapsed ? "justify-center px-0 gap-0" : "px-3 gap-3"}`}
                       >
-                        <Icon className={`w-5 h-5 flex-shrink-0 ${isCollapsed ? "mx-auto" : ""}`} />
+                        <Icon className="w-5 h-5 flex-shrink-0" />
                       
                         {/* Texto com fade */}
                         <span className={`whitespace-nowrap transition-all duration-200 ${
@@ -124,16 +104,19 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
                 </p>
               
                 {footerItems.map((item) => {
+                  const isActive = pathname.startsWith(item.href);
                   const Icon = item.icon;
                   return (
                     <Link
                       key={item.label}
                       href={item.href}
-                      className={`group relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#64748B] hover:text-[#94A3B8] hover:bg-white/[0.02] transition-all ${
-                        isCollapsed ? "justify-center px-2" : ""
-                      }`}
+                      className={`group relative flex items-center py-2 rounded-lg border text-sm transition-all ${
+                        isActive
+                          ? "text-[#6BB6C7] bg-[#467782]/10 border-[#467782]/20"
+                          : "text-[#64748B] border-transparent hover:text-[#94A3B8] hover:bg-white/[0.02]"
+                      } ${isCollapsed ? "justify-center px-0 gap-0" : "px-3 gap-3"}`}
                     >
-                      <Icon className={`w-5 h-5 flex-shrink-0 ${isCollapsed ? "mx-auto" : ""}`} />
+                      <Icon className="w-5 h-5 flex-shrink-0" />
                     
                       <span className={`whitespace-nowrap transition-all duration-200 ${
                         isCollapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100 w-auto"

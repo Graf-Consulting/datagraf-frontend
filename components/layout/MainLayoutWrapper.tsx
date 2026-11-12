@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/clients";
+import { useState } from "react";
+import { useAuth } from "./AuthProvider";
 import MenuHeader from "./MenuHeader";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
@@ -12,30 +12,25 @@ export default function MainLayoutWrapper({
   children: React.ReactNode;
 }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [showFooter, setShowFooter] = useState(true);
+  const { user } = useAuth();
 
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth.getClaims().then(({ data }) => {
-      if (data?.claims) {
-        setShowFooter(false)
-      }
-    });
-  }, []);
+  // A sidebar é fixed, então o conteúdo precisa de margem para não ficar por baixo dela
+  const contentOffset = user ? (isCollapsed ? "ml-16" : "ml-64") : "";
 
   return (
     <>
       <MenuHeader />
       <div className="flex min-h-[calc(100vh-64px)]">
-        <Sidebar 
+        <Sidebar
           isCollapsed={isCollapsed}
           onToggle={() => setIsCollapsed(!isCollapsed)}
         />
-        <main className={`flex-1 transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)]`}>
+        {/* div, não main: cada página já renderiza o próprio <main> */}
+        <div className={`flex-1 min-w-0 transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${contentOffset}`}>
           {children}
-        </main>
+        </div>
       </div>
-      {showFooter && <Footer />}
+      {!user && <Footer />}
     </>
   );
 }
