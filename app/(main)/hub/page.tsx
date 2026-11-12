@@ -1,16 +1,4 @@
-import {
-  LogOut,
-  User,
-  BarChart3,
-  Settings,
-  FileText,
-  Flame,
-  FilePlus,
-  Map,
-  Lightbulb,
-  BookOpen,
-} from "lucide-react";
-import Link from "next/link";
+import { BarChart3, Settings, FilePlus, Map, Lightbulb, BookOpen } from "lucide-react";
 import { requireAuth } from "@/lib/auth";
 import { PageHero } from "@/components/ui/PageHero";
 import { LinkCard } from "@/components/ui/LinkCard";

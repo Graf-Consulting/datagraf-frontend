@@ -22,6 +22,8 @@ export default function MenuHeader() {
   const handleLogout = async () => {
     setIsLoggingOut(true);
     await createClient().auth.signOut();
+    // Reload completo de propósito: limpa o router cache (staleTimes) com páginas da sessão anterior
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
     window.location.href = "/";
   };
   if (isLoggingOut) {

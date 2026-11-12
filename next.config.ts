@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
-const { version } = require("./package.json");
+import type { NextConfig } from "next";
+import { version } from "./package.json";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   trailingSlash: true,
   // Versão semântica (MAJOR.MINOR.PATCH) lida do package.json
   env: {
@@ -14,4 +14,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

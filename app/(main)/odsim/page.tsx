@@ -1,11 +1,10 @@
 import { requireAuth } from "@/lib/auth";
 import { MapPin, BookOpen } from "lucide-react";
-import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { LinkCard } from "@/components/ui/LinkCard";
 
 export default async function ODSimPage() {
-  const user = await requireAuth();
+  await requireAuth();
 
   const tools = [
     {

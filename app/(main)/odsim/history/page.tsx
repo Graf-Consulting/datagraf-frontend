@@ -1,10 +1,9 @@
 import { requireAuth } from "@/lib/auth";
-import { redirect } from "next/navigation";
 import { ArrowLeft, BookOpen } from "lucide-react";
 import Link from "next/link";
 
 export default async function HistoryPage() {
-  const user = await requireAuth();
+  await requireAuth();
 
   return (
     <main className="mx-auto max-w-5xl space-y-6 p-8">

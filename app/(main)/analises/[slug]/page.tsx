@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, BarChart3, ExternalLink, FileText } from "lucide-react";
-import { object } from "framer-motion/client";
 
 // Placeholder — depois a gente busca os dados reais por slug
 const analiseData: Record<

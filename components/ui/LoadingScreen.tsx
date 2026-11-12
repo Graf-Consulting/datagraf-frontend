@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 
@@ -7,10 +7,15 @@ interface LoadingScreenProps {
   message?: string;
 }
 
-export default function LoadingScreen({ message = "Carregando..." }: LoadingScreenProps) {
-  const [mounted, setMounted] = useState(false);
+const noopSubscribe = () => () => {};
 
-  useEffect(() => setMounted(true), []);
+export default function LoadingScreen({ message = "Carregando..." }: LoadingScreenProps) {
+  // true só no cliente: o portal precisa de document.body
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
 
   if (!mounted) return null;
 
