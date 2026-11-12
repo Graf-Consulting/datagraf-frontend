@@ -132,6 +132,10 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
                     </Link>
                   );
                 })}
+
+                <p className={`pt-3 text-[10px] font-mono text-[#475569] ${isCollapsed ? "text-center" : "px-3"}`}>
+                  v{process.env.NEXT_PUBLIC_APP_VERSION}
+                </p>
             </div>
         </aside>
     );
