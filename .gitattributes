@@ -1,0 +1,6 @@
+# Força LF no repositório e na cópia de trabalho (alinhado ao endOfLine do Prettier)
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
