@@ -10,8 +10,16 @@ export default function MainLayoutWrapper({ children }: { children: React.ReactN
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { user } = useAuth();
 
-  // A sidebar é fixed, então o conteúdo precisa de margem para não ficar por baixo dela
-  const contentOffset = user ? (isCollapsed ? "ml-16" : "ml-64") : "";
+  // A sidebar é fixed. O conteúdo ocupa a mesma faixa do container do header (max-w-6xl = 72rem,
+  // centralizado): a direita sempre alinha com o header; a esquerda também, a menos que a sidebar
+  // esteja no caminho. Nesse caso o conteúdo começa após a sidebar e encolhe para caber.
+  const contentOffset = !user
+    ? ""
+    : `pr-[max(0px,calc((100%_-_72rem)/2))] ${
+        isCollapsed
+          ? "pl-[max(4rem,calc((100%_-_72rem)/2))]"
+          : "pl-[max(16rem,calc((100%_-_72rem)/2))]"
+      }`;
 
   return (
     <>
