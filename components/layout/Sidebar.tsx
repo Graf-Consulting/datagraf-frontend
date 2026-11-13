@@ -33,10 +33,11 @@ const footerItems = [
 
 interface SidebarProps {
   isCollapsed: boolean;
+  canToggle: boolean;
   onToggle: () => void;
 }
 
-export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
+export default function Sidebar({ isCollapsed, canToggle, onToggle }: SidebarProps) {
   const pathname = usePathname();
   const { user, loading } = useAuth();
 
@@ -48,14 +49,16 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
         isCollapsed ? "w-16" : "w-64"
       }`}
     >
-      {/* Botão de toggle */}
-      <button
-        onClick={onToggle}
-        className="absolute -right-3 top-6 z-50 flex h-6 w-6 items-center justify-center rounded-full border border-white/[0.08] bg-[#151B26] text-[#64748B] transition-all hover:border-[#467782]/30 hover:text-[#94A3B8]"
-        title={isCollapsed ? "Expandir" : "Retrair"}
-      >
-        {isCollapsed ? <ChevronRight className="h-3 w-3" /> : <ChevronLeft className="h-3 w-3" />}
-      </button>
+      {/* Botão de toggle (escondido no mobile, onde a sidebar fica sempre recolhida) */}
+      {canToggle && (
+        <button
+          onClick={onToggle}
+          className="absolute -right-3 top-6 z-50 flex h-6 w-6 items-center justify-center rounded-full border border-white/[0.08] bg-[#151B26] text-[#64748B] transition-all hover:border-[#467782]/30 hover:text-[#94A3B8]"
+          title={isCollapsed ? "Expandir" : "Retrair"}
+        >
+          {isCollapsed ? <ChevronRight className="h-3 w-3" /> : <ChevronLeft className="h-3 w-3" />}
+        </button>
+      )}
 
       {/* Navegação principal */}
       <div className="flex-1 space-y-1 px-2 py-6">
