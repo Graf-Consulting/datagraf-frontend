@@ -87,7 +87,10 @@ components/
 ├── layout/                  # AuthProvider, MainLayoutWrapper, MenuHeader, Sidebar, Footer
 └── ui/                      # Badge, LinkCard, LoadingScreen, PageHero
 lib/
+├── analises.ts              # Dados das análises (lista e detalhe)
 ├── auth.ts                  # requireAuth(): guarda das páginas protegidas
+├── navigation.ts            # isActivePath(): item de menu ativo
+├── useMediaQuery.ts         # Hook para media queries (sidebar no mobile)
 └── supabase/
     ├── clients.ts           # Cliente para o navegador
     ├── proxy.ts             # Renovação de sessão e redirect de rotas protegidas

@@ -1,61 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, BarChart3, ExternalLink, FileText } from "lucide-react";
-
-// Placeholder — depois a gente busca os dados reais por slug
-const analiseData: Record<
-  string,
-  {
-    title: string;
-    description: string;
-    report?: { title: string; description: string; url: string };
-  }
-> = {
-  "movimentacao-portuaria": {
-    title: "Movimentação Portuária",
-    description: "Dados detalhados de carga e descarga nos portos brasileiros.",
-  },
-  "transporte-rodoviario": {
-    title: "Transporte Rodoviário",
-    description: "Panorama do transporte de cargas por rodovia.",
-  },
-  "comex-stat": {
-    title: "Comércio Exterior",
-    description: "Estatísticas de importação e exportação.",
-    report: {
-      title:
-        "Impacto da suspensão das importações de carnes e produtos de origem animal do Brasil pela União Europeia",
-      description:
-        "Um retrato dos fluxos comerciais potencialmente expostos às restrições, conectando a origem da carga, os corredores de saída e os mercados consumidores europeus.",
-      url: "https://graf-ebon.vercel.app/reports/impacto-restricoes-ue",
-    },
-  },
-  "demurrage-portuaria": {
-    title: "Demurrage Portuária",
-    description: "Análise de custos e tempos de demurrage.",
-    report: {
-      title: "Dashboard interativo Demurrage Brasil",
-      description: ".",
-      url: "https://data-dev.grafconsulting.com.br/?p=An%C3%A1lise+Demurrage",
-    },
-  },
-  "matmaker-od": {
-    title: "MatMaker OD",
-    description: "Matrizes origem-destino por tipo de carga.",
-  },
-  "tendencias-mercado": {
-    title: "Tendências de Mercado",
-    description: "Indicadores macro do setor de infraestrutura.",
-  },
-};
+import { analises, getAnalise } from "@/lib/analises";
 
 export function generateStaticParams() {
-  return Object.keys(analiseData).map((slug) => ({ slug }));
+  return analises.map(({ slug }) => ({ slug }));
 }
 
 export default async function AnaliseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const analise = analiseData[slug];
+  const analise = getAnalise(slug);
 
   if (!analise) notFound();
 

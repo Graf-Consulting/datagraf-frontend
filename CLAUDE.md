@@ -30,8 +30,8 @@ explicitamente em vez de assumir que funciona.
   marcar item de menu ativo, use `isActivePath()` ([lib/navigation.ts](lib/navigation.ts)).
 - **Logout usa `window.location.href` de propósito** (limpa o router cache). Não troque por
   `router.push`.
-- **Análises têm dados duplicados** em `app/(main)/analises/page.tsx` e
-  `app/(main)/analises/[slug]/page.tsx`. Ao mudar um slug, mude nos dois.
+- **Os dados das análises ficam em [lib/analises.ts](lib/analises.ts)**, fonte única da lista
+  (`/analises`) e do detalhe (`/analises/[slug]`). Para adicionar uma análise, edite só esse arquivo.
 - O `<img>` da `HeroSection` é o único warning do lint e está em standby por decisão do time.
 
 ## Contexto que não está no código
