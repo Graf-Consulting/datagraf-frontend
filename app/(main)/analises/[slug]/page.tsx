@@ -19,7 +19,7 @@ export default async function AnaliseDetailPage({ params }: { params: Promise<{ 
       <div>
         <Link
           href="/analises"
-          className="mb-6 inline-flex items-center gap-2 text-sm text-[#64748B] transition-colors hover:text-[#6BB6C7]"
+          className="mb-6 inline-flex items-center gap-2 text-sm text-fg-subtle transition-colors hover:text-accent-fg"
         >
           <ArrowLeft className="h-4 w-4" />
           Voltar para Análises
@@ -27,14 +27,14 @@ export default async function AnaliseDetailPage({ params }: { params: Promise<{ 
 
         <div className="glass-accent rounded-2xl p-8 md:p-10">
           <div className="mb-4 flex items-center gap-4">
-            <div className="rounded-xl bg-[#467782]/10 p-3">
-              <BarChart3 className="h-8 w-8 text-[#6BB6C7]" />
+            <div className="rounded-xl bg-accent/10 p-3">
+              <BarChart3 className="h-8 w-8 text-accent-fg" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-white">
+              <h1 className="text-3xl font-bold tracking-tight text-fg-strong">
                 {analise?.title || "Painel de Análise"}
               </h1>
-              <p className="mt-1 text-[#94A3B8]">
+              <p className="mt-1 text-fg-muted">
                 {analise?.description || "Descrição não disponível."}
               </p>
             </div>
@@ -46,32 +46,32 @@ export default async function AnaliseDetailPage({ params }: { params: Promise<{ 
           href={analise.report.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-card group block rounded-2xl p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#467782]/30 hover:shadow-[0_0_40px_-10px_rgba(70,119,130,0.12)]"
+          className="glass-card group block rounded-2xl p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_0_40px_-10px_rgba(70,119,130,0.12)]"
         >
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-4">
-              <div className="rounded-xl bg-[#467782]/10 p-3 transition-colors duration-300 group-hover:bg-[#467782]/20">
-                <FileText className="h-6 w-6 text-[#6BB6C7]" />
+              <div className="rounded-xl bg-accent/10 p-3 transition-colors duration-300 group-hover:bg-accent/20">
+                <FileText className="h-6 w-6 text-accent-fg" />
               </div>
               <div>
-                <h2 className="mb-1 text-xl font-semibold text-[#E2E8F0] transition-colors group-hover:text-white">
+                <h2 className="mb-1 text-xl font-semibold text-fg transition-colors group-hover:text-fg-strong">
                   {analise.report.title}
                 </h2>
-                <p className="text-sm text-[#64748B] transition-colors group-hover:text-[#94A3B8]">
+                <p className="text-sm text-fg-subtle transition-colors group-hover:text-fg-muted">
                   {analise.report.description}
                 </p>
               </div>
             </div>
-            <ExternalLink className="mt-1 h-5 w-5 shrink-0 text-[#475569] transition-colors group-hover:text-[#6BB6C7]" />
+            <ExternalLink className="mt-1 h-5 w-5 shrink-0 text-fg-faint transition-colors group-hover:text-accent-fg" />
           </div>
         </a>
       ) : (
         <section className="glass-card rounded-2xl p-12 text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#467782]/10">
-            <BarChart3 className="h-8 w-8 text-[#467782]" />
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10">
+            <BarChart3 className="h-8 w-8 text-accent" />
           </div>
-          <h2 className="mb-2 text-xl font-semibold text-[#E2E8F0]">Painel em construção</h2>
-          <p className="mx-auto max-w-md text-[#64748B]">
+          <h2 className="mb-2 text-xl font-semibold text-fg">Painel em construção</h2>
+          <p className="mx-auto max-w-md text-fg-subtle">
             Este painel está sendo integrado com os dados da GRAF. Em breve você poderá explorar as
             visualizações interativas aqui.
           </p>

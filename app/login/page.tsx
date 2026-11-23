@@ -47,7 +47,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen">
       {/* Lado esquerdo — Branding */}
       <div className="relative hidden flex-col justify-between overflow-hidden p-12 lg:flex lg:w-1/2">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#151B26] via-[#0E0E0E] to-[#0E0E0E]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-surface-raised via-base to-base" />
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -59,7 +59,7 @@ export default function LoginPage() {
         <div className="relative z-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-[#64748B] transition-colors hover:text-[#6BB6C7]"
+            className="inline-flex items-center gap-2 text-sm text-fg-subtle transition-colors hover:text-accent-fg"
           >
             <ArrowLeft className="h-4 w-4" />
             Voltar para o Nativ
@@ -67,15 +67,15 @@ export default function LoginPage() {
         </div>
 
         <div className="relative z-10 max-w-md">
-          <NativMark className="mb-8 h-16 w-16 shadow-lg shadow-[#467782]/20" />
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">Nativ</h1>
-          <p className="text-lg leading-relaxed text-[#94A3B8]">
+          <NativMark className="mb-8 h-16 w-16 shadow-lg shadow-accent/20" />
+          <h1 className="mb-4 text-4xl font-bold tracking-tight text-fg-strong">Nativ</h1>
+          <p className="text-lg leading-relaxed text-fg-muted">
             Sistema integrado de inteligência analítica para infraestrutura e transporte multimodal.
           </p>
         </div>
 
         <div className="relative z-10">
-          <p className="text-xs text-[#475569]">
+          <p className="text-xs text-fg-faint">
             © {new Date().getFullYear()} GRAF Infra Consulting
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function LoginPage() {
 
       {/* Lado direito — Formulário */}
       <div className="relative flex w-full items-center justify-center p-6 lg:w-1/2">
-        <div className="absolute inset-0 bg-[#0E0E0E]" />
+        <div className="absolute inset-0 bg-base" />
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -99,15 +99,17 @@ export default function LoginPage() {
 
           <div className="glass-card rounded-2xl p-8 md:p-12">
             <div className="mb-10 text-center">
-              <h2 className="text-2xl font-bold tracking-tight text-white">Bem-vindo de volta</h2>
-              <p className="mt-2 text-sm text-[#64748B]">
+              <h2 className="text-2xl font-bold tracking-tight text-fg-strong">
+                Bem-vindo de volta
+              </h2>
+              <p className="mt-2 text-sm text-fg-subtle">
                 Acesse com sua conta Google ou Microsoft
               </p>
             </div>
             <button
               onClick={handleGoogleLogin}
               type="button"
-              className="mb-5 flex w-full items-center justify-center gap-3 rounded-xl border border-white/[0.08] bg-[#0E0E0E]/60 px-5 py-4 text-sm font-medium text-[#E2E8F0] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/[0.12] hover:bg-[#0E0E0E]/80"
+              className="mb-5 flex w-full items-center justify-center gap-3 rounded-xl border border-overlay/[0.08] bg-base/60 px-5 py-4 text-sm font-medium text-fg transition-all duration-300 hover:-translate-y-0.5 hover:border-overlay/[0.12] hover:bg-base/80"
             >
               <svg className="h-4 w-4" viewBox="0 0 24 24">
                 <path
@@ -133,7 +135,7 @@ export default function LoginPage() {
             <button
               onClick={handleMicrosoftLogin}
               type="button"
-              className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/[0.08] bg-[#0E0E0E]/60 px-5 py-4 text-sm font-medium text-[#E2E8F0] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/[0.12] hover:bg-[#0E0E0E]/80"
+              className="flex w-full items-center justify-center gap-3 rounded-xl border border-overlay/[0.08] bg-base/60 px-5 py-4 text-sm font-medium text-fg transition-all duration-300 hover:-translate-y-0.5 hover:border-overlay/[0.12] hover:bg-base/80"
             >
               <svg className="h-4 w-4" viewBox="0 0 21 21" fill="none">
                 <path d="M1 1h9v9H1V1z" fill="#f25022" />

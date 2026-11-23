@@ -52,10 +52,10 @@ export default function DataSourcesSection() {
   return (
     <section>
       <div className="mb-8">
-        <h2 className="text-2xl font-bold tracking-tight text-[#F1F5F9]">
+        <h2 className="text-2xl font-bold tracking-tight text-fg-strong">
           Fontes de dados integradas
         </h2>
-        <p className="mt-2 text-[15px] text-[#64748B]">
+        <p className="mt-2 text-[15px] text-fg-subtle">
           Dados públicos governamentais consolidados
         </p>
       </div>

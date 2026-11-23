@@ -42,8 +42,8 @@ export default function UpdatesSection() {
   return (
     <section>
       <div className="mb-8">
-        <h2 className="text-2xl font-bold tracking-tight text-[#F1F5F9]">Atualizações Recentes</h2>
-        <p className="mt-2 text-[15px] text-[#64748B]">Novidades e atualizações do Nativ</p>
+        <h2 className="text-2xl font-bold tracking-tight text-fg-strong">Atualizações Recentes</h2>
+        <p className="mt-2 text-[15px] text-fg-subtle">Novidades e atualizações do Nativ</p>
       </div>
       <div className="space-y-4">
         {updates.map((up) => (

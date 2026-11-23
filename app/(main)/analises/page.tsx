@@ -12,8 +12,8 @@ export default function AnalisesPage() {
       />
       <section>
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-xl font-bold tracking-tight text-[#F1F5F9]">Painéis disponíveis</h2>
-          <span className="font-mono text-xs text-[#64748B]">{analises.length} painéis</span>
+          <h2 className="text-xl font-bold tracking-tight text-fg-strong">Painéis disponíveis</h2>
+          <span className="font-mono text-xs text-fg-subtle">{analises.length} painéis</span>
         </div>
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

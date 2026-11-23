@@ -32,6 +32,11 @@ explicitamente em vez de assumir que funciona.
   `router.push`.
 - **Os dados das análises ficam em [lib/analises.ts](lib/analises.ts)**, fonte única da lista
   (`/analises`) e do detalhe (`/analises/[slug]`). Para adicionar uma análise, edite só esse arquivo.
+- **Cores só por tokens semânticos, nunca hex.** Use `bg-surface`, `text-fg-muted`,
+  `border-overlay/[0.06]`, `text-accent-fg` etc. (definidos em `tailwind.config.ts`, valores por tema
+  em [app/globals.css](app/globals.css)). Assim o tema claro/escuro funciona sem `dark:` em cada
+  elemento. Para uma cor nova, crie o token nos dois temas. `text-white` só sobre fundo de acento
+  (botões, avatar); em texto comum use `text-fg-strong`.
 - O `<img>` da `HeroSection` é o único warning do lint e está em standby por decisão do time.
 
 ## Contexto que não está no código
