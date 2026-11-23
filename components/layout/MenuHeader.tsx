@@ -35,14 +35,14 @@ export default function MenuHeader() {
   return (
     <header className="sticky top-0 z-50">
       <div
-        className="absolute inset-0 border-b border-white/[0.06] bg-[#0E0E0E]/60 backdrop-blur-xl"
-        style={{ boxShadow: "inset 0 -1px 0 0 rgba(255,255,255,0.03)" }}
+        className="absolute inset-0 border-b border-overlay/[0.06] bg-base/60 backdrop-blur-xl"
+        style={{ boxShadow: "inset 0 -1px 0 0 rgb(var(--color-overlay) / 0.03)" }}
       />
 
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="group flex items-center gap-3">
-          <NativMark className="h-9 w-9 shadow-lg shadow-[#467782]/20" />
-          <span className="font-semibold text-gray-100 transition-colors duration-300 group-hover:text-[#6BB6C7]">
+          <NativMark className="h-9 w-9 shadow-lg shadow-accent/20" />
+          <span className="font-semibold text-fg-strong transition-colors duration-300 group-hover:text-accent-fg">
             Nativ
           </span>
         </Link>
@@ -57,8 +57,8 @@ export default function MenuHeader() {
                   href={link.href}
                   className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-[#467782]/10 text-[#6BB6C7]"
-                      : "text-[#94A3B8] hover:bg-white/[0.04] hover:text-white"
+                      ? "bg-accent/10 text-accent-fg"
+                      : "text-fg-muted hover:bg-overlay/[0.04] hover:text-fg-strong"
                   }`}
                 >
                   {link.label}
@@ -72,9 +72,9 @@ export default function MenuHeader() {
           <>
             {user ? (
               <div className="flex items-center gap-3">
-                <div className="hidden items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.04] px-3 py-1.5 sm:flex">
-                  <User className="h-4 w-4 text-[#6BB6C7]" />
-                  <span className="max-w-[140px] truncate text-sm text-[#E2E8F0]">
+                <div className="hidden items-center gap-2 rounded-lg border border-overlay/[0.06] bg-overlay/[0.04] px-3 py-1.5 sm:flex">
+                  <User className="h-4 w-4 text-accent-fg" />
+                  <span className="max-w-[140px] truncate text-sm text-fg">
                     {user.user_metadata?.full_name || user.email}
                   </span>
                 </div>
@@ -94,8 +94,8 @@ export default function MenuHeader() {
                 href="/login"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-all duration-300"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#467782] to-[#3D6A75] transition-all duration-300 group-hover:from-[#4DA0B2] group-hover:to-[#467782]" />
-                <span className="absolute inset-0 bg-[#467782]/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-dark transition-all duration-300 group-hover:from-accent-light group-hover:to-accent" />
+                <span className="absolute inset-0 bg-accent/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
                 <span className="relative flex items-center gap-2">
                   <LogIn className="h-4 w-4" />
                   Entrar

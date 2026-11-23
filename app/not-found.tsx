@@ -4,7 +4,7 @@ import { ArrowLeft, Telescope } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="relative flex min-h-screen items-center overflow-hidden bg-[#0E0E0E] px-6 md:px-16 lg:px-24">
+    <main className="relative flex min-h-screen items-center overflow-hidden bg-base px-6 md:px-16 lg:px-24">
       {/* === FUNDO: sistema orbital (SVG puro) === */}
       <svg
         aria-hidden
@@ -112,7 +112,7 @@ export default function NotFound() {
       {/* === 404 fantasma === */}
       <span
         aria-hidden
-        className="absolute right-[2%] top-1/2 hidden -translate-y-1/2 select-none text-[20rem] font-bold leading-none tracking-tighter text-white/[0.03] md:block lg:text-[26rem]"
+        className="absolute right-[2%] top-1/2 hidden -translate-y-1/2 select-none text-[20rem] font-bold leading-none tracking-tighter text-overlay/[0.03] md:block lg:text-[26rem]"
       >
         404
       </span>
@@ -128,26 +128,26 @@ export default function NotFound() {
 
       {/* === CONTEÚDO: à esquerda === */}
       <div className="relative z-10 max-w-xl">
-        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-[#4DA0B2] to-[#467782] shadow-lg shadow-[#467782]/30">
+        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-light to-accent shadow-lg shadow-accent/30">
           <Telescope className="h-12 w-12 text-white" />
         </div>
 
-        <p className="mb-4 font-mono text-xs tracking-[0.35em] text-[#467782]">
+        <p className="mb-4 font-mono text-xs tracking-[0.35em] text-accent">
           ERR 404 // SINAL PERDIDO
         </p>
 
-        <h1 className="mb-5 text-5xl font-bold tracking-tight text-white md:text-6xl">
+        <h1 className="mb-5 text-5xl font-bold tracking-tight text-fg-strong md:text-6xl">
           Houston, temos um problema.
         </h1>
 
-        <p className="mb-10 max-w-md text-lg leading-relaxed text-[#94A3B8]">
+        <p className="mb-10 max-w-md text-lg leading-relaxed text-fg-muted">
           Apontamos todos os nossos telescópios, mas esta página está fora do campo de observação. É
           possível que o endereço tenha mudado de órbita, ou que nunca tenha existido.
         </p>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#467782] to-[#3D6A75] px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:from-[#4DA0B2] hover:to-[#467782]"
+          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent to-accent-dark px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:from-accent-light hover:to-accent"
         >
           <ArrowLeft className="h-4 w-4" />
           Voltar para a base

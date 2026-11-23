@@ -3,43 +3,118 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * Tema: cores semânticas em CSS variables (canais RGB, para o Tailwind aceitar /opacidade).
+   * O escuro é o padrão; a classe `light` no <html> troca os valores (ver lib/theme.ts).
+   * Em componentes use as classes semânticas (bg-surface, text-fg-muted, border-overlay/[0.06]...),
+   * nunca hex, e o tema funciona sem `dark:` em cada elemento. Os tokens estão em tailwind.config.ts.
+   */
+  :root,
+  .dark {
+    --color-base: 14 14 14;
+    --color-surface: 18 21 28;
+    --color-surface-raised: 21 27 38;
+    --color-surface-muted: 28 37 54;
+    --color-overlay: 255 255 255;
+    --color-fg-strong: 255 255 255;
+    --color-fg: 226 232 240;
+    --color-fg-muted: 148 163 184;
+    --color-fg-subtle: 100 116 139;
+    --color-fg-faint: 71 85 105;
+    --color-accent: 70 119 130;
+    --color-accent-light: 77 160 178;
+    --color-accent-dark: 61 106 117;
+    --color-accent-fg: 107 182 199;
+    --color-accent-fg-strong: 152 205 217;
+    --color-danger: 248 113 113;
+
+    --body-top: 15 19 24;
+    --body-glow: rgba(70, 119, 130, 0.04);
+    --shadow-card: rgba(0, 0, 0, 0.3);
+    --shadow-overlay: rgba(0, 0, 0, 0.4);
+    --highlight: rgba(255, 255, 255, 0.04);
+    color-scheme: dark;
+  }
+
+  .light {
+    --color-base: 244 246 249;
+    --color-surface: 255 255 255;
+    --color-surface-raised: 248 250 252;
+    --color-surface-muted: 226 232 240;
+    --color-overlay: 15 23 42;
+    --color-fg-strong: 15 23 42;
+    --color-fg: 30 41 59;
+    --color-fg-muted: 71 85 105;
+    --color-fg-subtle: 100 116 139;
+    --color-fg-faint: 113 128 150;
+    --color-accent: 70 119 130;
+    --color-accent-light: 77 160 178;
+    --color-accent-dark: 61 106 117;
+    --color-accent-fg: 47 101 115;
+    --color-accent-fg-strong: 31 79 92;
+    --color-danger: 220 38 38;
+
+    --body-top: 250 251 253;
+    --body-glow: rgba(70, 119, 130, 0.08);
+    --shadow-card: rgba(15, 23, 42, 0.08);
+    --shadow-overlay: rgba(15, 23, 42, 0.12);
+    --highlight: rgba(255, 255, 255, 0.6);
+    color-scheme: light;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    background: 
+    color: rgb(var(--color-fg));
+    background:
       /* Glow MUITO sutil de teal no topo — quase imperceptível */
-      radial-gradient(ellipse 70% 40% at 50% -5%, rgba(70, 119, 130, 0.04) 0%, transparent 50%),
-      /* Navy nos cantos inferiores para ancoragem visual */
-        radial-gradient(ellipse 50% 30% at 85% 100%, rgba(21, 27, 38, 0.5) 0%, transparent 50%),
-      /* Base escura institucional */ linear-gradient(180deg, #0f1318 0%, #0e0e0e 50%, #0e0e0e 100%);
+      radial-gradient(ellipse 70% 40% at 50% -5%, var(--body-glow) 0%, transparent 50%),
+      /* Cantos inferiores para ancoragem visual */
+        radial-gradient(
+          ellipse 50% 30% at 85% 100%,
+          rgb(var(--color-surface-raised) / 0.5) 0%,
+          transparent 50%
+        ),
+      /* Base institucional */
+        linear-gradient(
+          180deg,
+          rgb(var(--body-top)) 0%,
+          rgb(var(--color-base)) 50%,
+          rgb(var(--color-base)) 100%
+        );
   }
 }
 
 @layer components {
+  /*
+   * Cards "glass": translúcidos, sem backdrop-filter. O desfoque quase não aparece sobre o fundo em
+   * gradiente suave, e backdrop-blur em vários cards é caro e já apareceu com faixa cinza não
+   * repintada na troca de tema. Reserve backdrop-blur para o que passa sobre conteúdo rolando.
+   */
   /* Glass padrão para cards de destaque */
   .glass-card {
-    @apply border border-white/[0.06] bg-[#12151C]/60 backdrop-blur-xl;
+    @apply border border-overlay/[0.06] bg-surface/60;
     box-shadow:
-      0 4px 24px -1px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+      0 4px 24px -1px var(--shadow-card),
+      inset 0 1px 0 0 var(--highlight);
   }
 
   /* Glass mais escuro para elementos sobrepostos */
   .glass-dark {
-    @apply border border-white/[0.05] bg-[#0E0E0E]/70 backdrop-blur-xl;
+    @apply border border-overlay/[0.05] bg-base/70 backdrop-blur-xl;
     box-shadow:
-      0 8px 32px -4px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+      0 8px 32px -4px var(--shadow-overlay),
+      inset 0 1px 0 0 var(--highlight);
   }
 
   /* Glass com acento sutil — para cards em hover ou destaque */
   .glass-accent {
-    @apply border border-[#467782]/20 bg-[#12151C]/50 backdrop-blur-xl;
+    @apply border border-accent/20 bg-surface/50;
     box-shadow:
-      0 4px 24px -1px rgba(0, 0, 0, 0.3),
+      0 4px 24px -1px var(--shadow-card),
       0 0 40px -10px rgba(70, 119, 130, 0.1),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+      inset 0 1px 0 0 var(--highlight);
   }
 }

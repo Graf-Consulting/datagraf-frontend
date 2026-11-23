@@ -84,12 +84,13 @@ app/
 └── not-found.tsx
 components/
 ├── landing/                 # Cards da landing
-├── layout/                  # AuthProvider, MainLayoutWrapper, MenuHeader, Sidebar, Footer
-└── ui/                      # Badge, LinkCard, LoadingScreen, PageHero
+├── layout/                  # AuthProvider, ThemeProvider, MainLayoutWrapper, MenuHeader, Sidebar, Footer
+└── ui/                      # Badge, LinkCard, LoadingScreen, PageHero, ThemeSwitcher
 lib/
 ├── analises.ts              # Dados das análises (lista e detalhe)
 ├── auth.ts                  # requireAuth(): guarda das páginas protegidas
 ├── navigation.ts            # isActivePath(): item de menu ativo
+├── theme.ts                 # Tema claro/escuro: preferência salva e script anti-flash
 ├── useMediaQuery.ts         # Hook para media queries (sidebar no mobile)
 └── supabase/
     ├── clients.ts           # Cliente para o navegador

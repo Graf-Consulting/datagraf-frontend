@@ -9,17 +9,17 @@ interface UpdateCardProps {
 
 export default function UpdateCard({ title, date, description, tag }: UpdateCardProps) {
   return (
-    <div className="rounded-xl border border-white/[0.04] bg-[#12151C]/30 p-5 backdrop-blur-sm transition-all duration-300 hover:border-[#467782]/15 hover:bg-[#12151C]/60">
+    <div className="rounded-xl border border-overlay/[0.04] bg-surface/30 p-5 transition-all duration-300 hover:border-accent/15 hover:bg-surface/60">
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-xs font-medium text-[#475569]">{date}</span>
+        <span className="text-xs font-medium text-fg-faint">{date}</span>
         {tag && (
-          <span className="rounded-full border border-[#467782]/20 bg-[#467782]/10 px-2.5 py-1 text-xs font-medium text-[#6BB6C7]">
+          <span className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-fg">
             {tag}
           </span>
         )}
       </div>
-      <h4 className="mb-1.5 font-semibold text-[#E2E8F0]">{title}</h4>
-      <p className="text-sm leading-relaxed text-[#64748B]">{description}</p>
+      <h4 className="mb-1.5 font-semibold text-fg">{title}</h4>
+      <p className="text-sm leading-relaxed text-fg-subtle">{description}</p>
     </div>
   );
 }

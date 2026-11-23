@@ -53,7 +53,7 @@ export default async function HubPage() {
 
       {/* Grid de acesso rápido */}
       <section>
-        <h2 className="mb-6 text-xl font-bold tracking-tight text-[#F1F5F9]">Acesso Rápido</h2>
+        <h2 className="mb-6 text-xl font-bold tracking-tight text-fg-strong">Acesso Rápido</h2>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {quickAccess.map((item) => (
             <LinkCard

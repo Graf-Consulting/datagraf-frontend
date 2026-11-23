@@ -26,7 +26,7 @@ export default function LoadingScreen({ message = "Carregando..." }: LoadingScre
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0E0E0E]"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-base"
       style={{ margin: 0, padding: 0, top: 0, left: 0, right: 0, bottom: 0 }}
     >
       {/* Gradient sutil de fundo */}
@@ -43,19 +43,19 @@ export default function LoadingScreen({ message = "Carregando..." }: LoadingScre
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="h-16 w-16 rounded-[22%] shadow-lg shadow-[#467782]/30"
+          className="h-16 w-16 rounded-[22%] shadow-lg shadow-accent/30"
         >
           <NativMark className="h-full w-full" />
         </motion.div>
 
         {/* Spinner */}
         <div className="relative h-10 w-10">
-          <div className="absolute inset-0 rounded-full border-2 border-[#1C2536]" />
-          <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-[#467782]" />
+          <div className="absolute inset-0 rounded-full border-2 border-surface-muted" />
+          <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-accent" />
         </div>
 
         {/* Mensagem */}
-        <p className="text-sm font-medium tracking-wide text-[#64748B]">{message}</p>
+        <p className="text-sm font-medium tracking-wide text-fg-subtle">{message}</p>
       </div>
     </motion.div>,
     document.body,
