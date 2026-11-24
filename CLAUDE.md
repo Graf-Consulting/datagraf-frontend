@@ -37,7 +37,9 @@ explicitamente em vez de assumir que funciona.
   em [app/globals.css](app/globals.css)). Assim o tema claro/escuro funciona sem `dark:` em cada
   elemento. Para uma cor nova, crie o token nos dois temas. `text-white` só sobre fundo de acento
   (botões, avatar); em texto comum use `text-fg-strong`.
-- O `<img>` da `HeroSection` é o único warning do lint e está em standby por decisão do time.
+- **Imagens com `next/image`**, de preferência com import estático (dá largura, altura e
+  placeholder). Informe `sizes` quando a imagem não ocupa a tela toda; no Next 16, `priority` está
+  depreciado: use `fetchPriority="high"` na imagem principal da página.
 
 ## Contexto que não está no código
 
