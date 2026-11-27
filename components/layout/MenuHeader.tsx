@@ -2,19 +2,14 @@
 
 import { createClient } from "@/lib/supabase/clients";
 import { usePathname } from "next/navigation";
-import { isActivePath } from "@/lib/navigation";
+import { isActivePath, publicNavLinks } from "@/lib/navigation";
 import { useState } from "react";
 import { LogIn, LogOut, User } from "lucide-react";
 import Link from "next/link";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import { useAuth } from "./AuthProvider";
+import MobileNav from "./MobileNav";
 import { NativMark } from "@/components/ui/NativMark";
-
-const navLinks = [
-  { href: "/", label: "Início" },
-  { href: "/analises", label: "Análises" },
-  { href: "/insights", label: "Insights" },
-];
 
 export default function MenuHeader() {
   const pathname = usePathname();
@@ -48,13 +43,15 @@ export default function MenuHeader() {
         </Link>
 
         {!loading && !user && (
-          <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => {
+          // Abaixo do breakpoint `nav` (tailwind.config.ts) os links vão para o MobileNav
+          <nav className="hidden items-center gap-1 nav:flex">
+            {publicNavLinks.map((link) => {
               const isActive = isActivePath(pathname, link.href);
               return (
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-accent/10 text-accent-fg"
@@ -90,17 +87,20 @@ export default function MenuHeader() {
                 </button>
               </div>
             ) : (
-              <Link
-                href="/login"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-all duration-300"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-dark transition-all duration-300 group-hover:from-accent-light group-hover:to-accent" />
-                <span className="absolute inset-0 bg-accent/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
-                <span className="relative flex items-center gap-2">
-                  <LogIn className="h-4 w-4" />
-                  Entrar
-                </span>
-              </Link>
+              <div className="flex items-center gap-2">
+                <MobileNav />
+                <Link
+                  href="/login"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-all duration-300"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-dark transition-all duration-300 group-hover:from-accent-light group-hover:to-accent" />
+                  <span className="absolute inset-0 bg-accent/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="relative flex items-center gap-2">
+                    <LogIn className="h-4 w-4" />
+                    Entrar
+                  </span>
+                </Link>
+              </div>
             )}
           </>
         )}
