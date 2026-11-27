@@ -19,15 +19,16 @@ export default async function AnaliseDetailPage({ params }: { params: Promise<{ 
       <div>
         <Link
           href="/analises"
-          className="mb-6 inline-flex items-center gap-2 text-sm text-fg-subtle transition-colors hover:text-accent-fg"
+          className="-mt-3 mb-3 inline-flex items-center gap-2 py-3 text-sm text-fg-subtle transition-colors hover:text-accent-fg"
         >
           <ArrowLeft className="h-4 w-4" />
           Voltar para Análises
         </Link>
 
-        <div className="glass-accent rounded-2xl p-8 md:p-10">
-          <div className="mb-4 flex items-center gap-4">
-            <div className="rounded-xl bg-accent/10 p-3">
+        <div className="glass-accent rounded-2xl p-6 md:p-10">
+          {/* No celular o ícone fica acima do texto, para o título não ficar espremido */}
+          <div className="mb-4 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="shrink-0 rounded-xl bg-accent/10 p-3">
               <BarChart3 className="h-8 w-8 text-accent-fg" />
             </div>
             <div>
@@ -46,11 +47,11 @@ export default async function AnaliseDetailPage({ params }: { params: Promise<{ 
           href={analise.report.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-card group block rounded-2xl p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_0_40px_-10px_rgba(70,119,130,0.12)]"
+          className="glass-card group block rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_0_40px_-10px_rgba(70,119,130,0.12)] md:p-8"
         >
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-4">
-              <div className="rounded-xl bg-accent/10 p-3 transition-colors duration-300 group-hover:bg-accent/20">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <div className="shrink-0 rounded-xl bg-accent/10 p-3 transition-colors duration-300 group-hover:bg-accent/20">
                 <FileText className="h-6 w-6 text-accent-fg" />
               </div>
               <div>

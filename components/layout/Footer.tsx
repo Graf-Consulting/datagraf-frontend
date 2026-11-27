@@ -19,22 +19,22 @@ export default function Footer() {
           </div>
 
           {/* Centro: Links rápidos */}
-          <nav className="flex items-center gap-6">
+          <nav className="-my-3.5 flex items-center gap-2">
             <Link
               href="#"
-              className="text-xs text-fg-subtle transition-colors hover:text-accent-fg"
+              className="inline-block px-2 py-3.5 text-xs text-fg-subtle transition-colors hover:text-accent-fg"
             >
               Documentação
             </Link>
             <Link
               href="#"
-              className="text-xs text-fg-subtle transition-colors hover:text-accent-fg"
+              className="inline-block px-2 py-3.5 text-xs text-fg-subtle transition-colors hover:text-accent-fg"
             >
               Suporte
             </Link>
             <Link
               href="#"
-              className="text-xs text-fg-subtle transition-colors hover:text-accent-fg"
+              className="inline-block px-2 py-3.5 text-xs text-fg-subtle transition-colors hover:text-accent-fg"
             >
               Changelog
             </Link>
@@ -45,7 +45,7 @@ export default function Footer() {
             <p className="text-xs text-fg-faint">
               © {new Date().getFullYear()} GRAF Infra Consulting
             </p>
-            <p className="mt-0.5 font-mono text-[10px] text-fg-faint/70">v1.0.0 · build 20260820</p>
+            <p className="mt-0.5 font-mono text-[11px] text-fg-faint/70">v1.0.0 · build 20260820</p>
           </div>
         </div>
       </div>

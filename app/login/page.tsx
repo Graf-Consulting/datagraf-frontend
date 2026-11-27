@@ -59,7 +59,7 @@ export default function LoginPage() {
         <div className="relative z-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-fg-subtle transition-colors hover:text-accent-fg"
+            className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-fg-subtle transition-colors hover:text-accent-fg"
           >
             <ArrowLeft className="h-4 w-4" />
             Voltar para o Nativ
