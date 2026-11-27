@@ -53,7 +53,7 @@ export function LinkCard({
               ))}
             </div>
           )}
-          {meta && <span className="text-[10px] font-medium text-fg-faint">{meta}</span>}
+          {meta && <span className="text-[11px] font-medium text-fg-faint">{meta}</span>}
         </div>
       )}
     </>

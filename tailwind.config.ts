@@ -5,6 +5,18 @@ const config: Config = {
   darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    // Lista completa (e não `extend`) para manter a ordem crescente: breakpoint vindo do `extend`
+    // vai para o fim do CSS e passaria a ganhar de md/lg na mesma propriedade.
+    // `nav` é onde os links públicos do header viram o menu do celular (MenuHeader e MobileNav).
+    // Os demais são os valores padrão do Tailwind.
+    screens: {
+      nav: "540px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
         base: "rgb(var(--color-base) / <alpha-value>)",

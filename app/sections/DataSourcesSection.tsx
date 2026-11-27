@@ -8,43 +8,43 @@ const sources = [
     name: "ANTAQ",
     description: "Agência Nacional de Transportes Aquaviários",
     icon: Anchor,
-    recordCount: "192.7M registros",
+    recordCount: "192.7M",
   },
   {
     name: "ANTT",
     description: "Agência Nacional de Transportes Terrestres",
     icon: Truck,
-    recordCount: "8.1M registros",
+    recordCount: "8.1M",
   },
   {
     name: "Comex Stat",
     description: "Estatísticas de Comércio Exterior",
     icon: Globe,
-    recordCount: "126.4M registros",
+    recordCount: "126.4M",
   },
   {
     name: "Conab",
     description: "Companhia Nacional de Abastecimento",
     icon: Package,
-    recordCount: "8.9K registros",
+    recordCount: "8.9K",
   },
   {
     name: "Infra-SA",
     description: "Empresa pública de infraestrutura",
     icon: FileText,
-    recordCount: "20.9M registros",
+    recordCount: "20.9M",
   },
   {
     name: "IBGE",
     description: "Dados socioeconômicos do Brasil",
     icon: Compass,
-    recordCount: "20.9M registros",
+    recordCount: "20.9M",
   },
   {
     name: "IMO",
     description: "Organização Marítima Internacional",
     icon: Anchor,
-    recordCount: "13.3K registros",
+    recordCount: "13.3K",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function DataSourcesSection() {
           Dados públicos governamentais consolidados
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sources.map((src) => (
           <DataSourceCard key={src.name} {...src} />
         ))}
